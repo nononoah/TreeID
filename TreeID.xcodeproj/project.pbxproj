@@ -1,0 +1,563 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1D03EE8816B8326D00F15593 /* TIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D03EE8716B8326D00F15593 /* TIButton.m */; };
+		1D6671AF16B96F8000DA7103 /* TIWikiHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6671AE16B96F8000DA7103 /* TIWikiHandler.m */; };
+		1DD60B3416B2E9D400903CA7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD60B3316B2E9D400903CA7 /* UIKit.framework */; };
+		1DD60B3616B2E9D400903CA7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD60B3516B2E9D400903CA7 /* Foundation.framework */; };
+		1DD60B3816B2E9D400903CA7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD60B3716B2E9D400903CA7 /* CoreGraphics.framework */; };
+		1DD60B3E16B2E9D400903CA7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1DD60B3C16B2E9D400903CA7 /* InfoPlist.strings */; };
+		1DD60B4016B2E9D400903CA7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DD60B3F16B2E9D400903CA7 /* main.m */; };
+		1DD60B4416B2E9D400903CA7 /* TIAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DD60B4316B2E9D400903CA7 /* TIAppDelegate.m */; };
+		1DD60B4616B2E9D400903CA7 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DD60B4516B2E9D400903CA7 /* Default.png */; };
+		1DD60B4816B2E9D400903CA7 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DD60B4716B2E9D400903CA7 /* Default@2x.png */; };
+		1DD60B4A16B2E9D400903CA7 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DD60B4916B2E9D400903CA7 /* Default-568h@2x.png */; };
+		1DD60B5216B2E9D400903CA7 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD60B5116B2E9D400903CA7 /* SenTestingKit.framework */; };
+		1DD60B5316B2E9D400903CA7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD60B3316B2E9D400903CA7 /* UIKit.framework */; };
+		1DD60B5416B2E9D400903CA7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD60B3516B2E9D400903CA7 /* Foundation.framework */; };
+		1DD60B5C16B2E9D400903CA7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1DD60B5A16B2E9D400903CA7 /* InfoPlist.strings */; };
+		1DD60B5F16B2E9D400903CA7 /* TreeIDTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DD60B5E16B2E9D400903CA7 /* TreeIDTests.m */; };
+		1DD60B8F16B2EE3D00903CA7 /* TITabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DD60B8E16B2EE3D00903CA7 /* TITabBarController.m */; };
+		1DD60B9216B2EEBA00903CA7 /* TICladisticViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DD60B9116B2EEBA00903CA7 /* TICladisticViewController.m */; };
+		1DD60B9516B2EEEC00903CA7 /* TISearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DD60B9416B2EEEC00903CA7 /* TISearchTableViewController.m */; };
+		1DD60B9816B2EF0900903CA7 /* TISavedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DD60B9716B2EF0900903CA7 /* TISavedTableViewController.m */; };
+		1DD60B9B16B2EF6900903CA7 /* TIBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DD60B9A16B2EF6900903CA7 /* TIBaseTableViewController.m */; };
+		1DD60B9E16B2EF8800903CA7 /* TIBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DD60B9D16B2EF8800903CA7 /* TIBaseViewController.m */; };
+		1DD60BA216B2F10A00903CA7 /* TITreeDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DD60BA116B2F10A00903CA7 /* TITreeDictionary.m */; };
+		1DD60BA516B2F79000903CA7 /* TITreeArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DD60BA416B2F79000903CA7 /* TITreeArray.m */; };
+		1DE2031416B844D000C026E3 /* TISingletonObjectWithArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DE2031316B844D000C026E3 /* TISingletonObjectWithArray.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1DD60B5516B2E9D400903CA7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1DD60B2616B2E9D400903CA7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1DD60B2E16B2E9D400903CA7;
+			remoteInfo = TreeID;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1D03EE8616B8326D00F15593 /* TIButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TIButton.h; path = Extensions/TIButton.h; sourceTree = SOURCE_ROOT; };
+		1D03EE8716B8326D00F15593 /* TIButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TIButton.m; path = Extensions/TIButton.m; sourceTree = SOURCE_ROOT; };
+		1D6671AD16B96F8000DA7103 /* TIWikiHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TIWikiHandler.h; path = Extensions/TIWikiHandler.h; sourceTree = SOURCE_ROOT; };
+		1D6671AE16B96F8000DA7103 /* TIWikiHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TIWikiHandler.m; path = Extensions/TIWikiHandler.m; sourceTree = SOURCE_ROOT; };
+		1DD60B2F16B2E9D400903CA7 /* TreeID.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TreeID.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DD60B3316B2E9D400903CA7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		1DD60B3516B2E9D400903CA7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1DD60B3716B2E9D400903CA7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		1DD60B3B16B2E9D400903CA7 /* TreeID-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TreeID-Info.plist"; sourceTree = "<group>"; };
+		1DD60B3D16B2E9D400903CA7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1DD60B3F16B2E9D400903CA7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1DD60B4116B2E9D400903CA7 /* TreeID-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TreeID-Prefix.pch"; sourceTree = "<group>"; };
+		1DD60B4216B2E9D400903CA7 /* TIAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TIAppDelegate.h; sourceTree = "<group>"; };
+		1DD60B4316B2E9D400903CA7 /* TIAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TIAppDelegate.m; sourceTree = "<group>"; };
+		1DD60B4516B2E9D400903CA7 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		1DD60B4716B2E9D400903CA7 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		1DD60B4916B2E9D400903CA7 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		1DD60B5016B2E9D400903CA7 /* TreeIDTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TreeIDTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DD60B5116B2E9D400903CA7 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		1DD60B5916B2E9D400903CA7 /* TreeIDTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TreeIDTests-Info.plist"; sourceTree = "<group>"; };
+		1DD60B5B16B2E9D400903CA7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1DD60B5D16B2E9D400903CA7 /* TreeIDTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TreeIDTests.h; sourceTree = "<group>"; };
+		1DD60B5E16B2E9D400903CA7 /* TreeIDTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TreeIDTests.m; sourceTree = "<group>"; };
+		1DD60B8D16B2EE3D00903CA7 /* TITabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TITabBarController.h; path = ViewControllers/TITabBarController.h; sourceTree = "<group>"; };
+		1DD60B8E16B2EE3D00903CA7 /* TITabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TITabBarController.m; path = ViewControllers/TITabBarController.m; sourceTree = "<group>"; };
+		1DD60B9016B2EEBA00903CA7 /* TICladisticViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TICladisticViewController.h; path = ViewControllers/TICladisticViewController.h; sourceTree = "<group>"; };
+		1DD60B9116B2EEBA00903CA7 /* TICladisticViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TICladisticViewController.m; path = ViewControllers/TICladisticViewController.m; sourceTree = "<group>"; };
+		1DD60B9316B2EEEC00903CA7 /* TISearchTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TISearchTableViewController.h; path = ViewControllers/TISearchTableViewController.h; sourceTree = "<group>"; };
+		1DD60B9416B2EEEC00903CA7 /* TISearchTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TISearchTableViewController.m; path = ViewControllers/TISearchTableViewController.m; sourceTree = "<group>"; };
+		1DD60B9616B2EF0800903CA7 /* TISavedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TISavedTableViewController.h; sourceTree = "<group>"; };
+		1DD60B9716B2EF0900903CA7 /* TISavedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TISavedTableViewController.m; sourceTree = "<group>"; };
+		1DD60B9916B2EF6900903CA7 /* TIBaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TIBaseTableViewController.h; sourceTree = "<group>"; };
+		1DD60B9A16B2EF6900903CA7 /* TIBaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TIBaseTableViewController.m; sourceTree = "<group>"; };
+		1DD60B9C16B2EF8800903CA7 /* TIBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TIBaseViewController.h; path = ViewControllers/TIBaseViewController.h; sourceTree = "<group>"; };
+		1DD60B9D16B2EF8800903CA7 /* TIBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TIBaseViewController.m; path = ViewControllers/TIBaseViewController.m; sourceTree = "<group>"; };
+		1DD60BA016B2F10A00903CA7 /* TITreeDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TITreeDictionary.h; sourceTree = "<group>"; };
+		1DD60BA116B2F10A00903CA7 /* TITreeDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TITreeDictionary.m; sourceTree = "<group>"; };
+		1DD60BA316B2F79000903CA7 /* TITreeArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TITreeArray.h; path = Models/TITreeArray.h; sourceTree = SOURCE_ROOT; };
+		1DD60BA416B2F79000903CA7 /* TITreeArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TITreeArray.m; path = Models/TITreeArray.m; sourceTree = SOURCE_ROOT; };
+		1DE2031216B844D000C026E3 /* TISingletonObjectWithArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TISingletonObjectWithArray.h; sourceTree = "<group>"; };
+		1DE2031316B844D000C026E3 /* TISingletonObjectWithArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TISingletonObjectWithArray.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1DD60B2C16B2E9D400903CA7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1DD60B3416B2E9D400903CA7 /* UIKit.framework in Frameworks */,
+				1DD60B3616B2E9D400903CA7 /* Foundation.framework in Frameworks */,
+				1DD60B3816B2E9D400903CA7 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1DD60B4C16B2E9D400903CA7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1DD60B5216B2E9D400903CA7 /* SenTestingKit.framework in Frameworks */,
+				1DD60B5316B2E9D400903CA7 /* UIKit.framework in Frameworks */,
+				1DD60B5416B2E9D400903CA7 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1DD60B2416B2E9D400903CA7 = {
+			isa = PBXGroup;
+			children = (
+				1DD60B3916B2E9D400903CA7 /* TreeID */,
+				1DD60B9F16B2F0D000903CA7 /* Models */,
+				1DD60BA616B31AC900903CA7 /* Extensions */,
+				1DD60B5716B2E9D400903CA7 /* TreeIDTests */,
+				1DD60B3216B2E9D400903CA7 /* Frameworks */,
+				1DD60B3016B2E9D400903CA7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1DD60B3016B2E9D400903CA7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1DD60B2F16B2E9D400903CA7 /* TreeID.app */,
+				1DD60B5016B2E9D400903CA7 /* TreeIDTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1DD60B3216B2E9D400903CA7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1DD60B3316B2E9D400903CA7 /* UIKit.framework */,
+				1DD60B3516B2E9D400903CA7 /* Foundation.framework */,
+				1DD60B3716B2E9D400903CA7 /* CoreGraphics.framework */,
+				1DD60B5116B2E9D400903CA7 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1DD60B3916B2E9D400903CA7 /* TreeID */ = {
+			isa = PBXGroup;
+			children = (
+				1DD60B4216B2E9D400903CA7 /* TIAppDelegate.h */,
+				1DD60B4316B2E9D400903CA7 /* TIAppDelegate.m */,
+				1DD60B6816B2E9F700903CA7 /* ViewControllers */,
+				1DD60B6916B2EA0A00903CA7 /* Views */,
+				1DD60B3A16B2E9D400903CA7 /* Supporting Files */,
+			);
+			path = TreeID;
+			sourceTree = "<group>";
+		};
+		1DD60B3A16B2E9D400903CA7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1DD60B3B16B2E9D400903CA7 /* TreeID-Info.plist */,
+				1DD60B3C16B2E9D400903CA7 /* InfoPlist.strings */,
+				1DD60B3F16B2E9D400903CA7 /* main.m */,
+				1DD60B4116B2E9D400903CA7 /* TreeID-Prefix.pch */,
+				1DD60B4516B2E9D400903CA7 /* Default.png */,
+				1DD60B4716B2E9D400903CA7 /* Default@2x.png */,
+				1DD60B4916B2E9D400903CA7 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1DD60B5716B2E9D400903CA7 /* TreeIDTests */ = {
+			isa = PBXGroup;
+			children = (
+				1DD60B5D16B2E9D400903CA7 /* TreeIDTests.h */,
+				1DD60B5E16B2E9D400903CA7 /* TreeIDTests.m */,
+				1DD60B5816B2E9D400903CA7 /* Supporting Files */,
+			);
+			path = TreeIDTests;
+			sourceTree = "<group>";
+		};
+		1DD60B5816B2E9D400903CA7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1DD60B5916B2E9D400903CA7 /* TreeIDTests-Info.plist */,
+				1DD60B5A16B2E9D400903CA7 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1DD60B6816B2E9F700903CA7 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				1DD60B7016B2EA7100903CA7 /* Root */,
+				1DD60B7116B2EA8300903CA7 /* Tabs */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		1DD60B6916B2EA0A00903CA7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		1DD60B7016B2EA7100903CA7 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				1DD60B8D16B2EE3D00903CA7 /* TITabBarController.h */,
+				1DD60B8E16B2EE3D00903CA7 /* TITabBarController.m */,
+				1DD60B9916B2EF6900903CA7 /* TIBaseTableViewController.h */,
+				1DD60B9A16B2EF6900903CA7 /* TIBaseTableViewController.m */,
+				1DD60B9C16B2EF8800903CA7 /* TIBaseViewController.h */,
+				1DD60B9D16B2EF8800903CA7 /* TIBaseViewController.m */,
+			);
+			name = Root;
+			sourceTree = "<group>";
+		};
+		1DD60B7116B2EA8300903CA7 /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				1DD60B9016B2EEBA00903CA7 /* TICladisticViewController.h */,
+				1DD60B9116B2EEBA00903CA7 /* TICladisticViewController.m */,
+				1DD60B9316B2EEEC00903CA7 /* TISearchTableViewController.h */,
+				1DD60B9416B2EEEC00903CA7 /* TISearchTableViewController.m */,
+				1DD60B9616B2EF0800903CA7 /* TISavedTableViewController.h */,
+				1DD60B9716B2EF0900903CA7 /* TISavedTableViewController.m */,
+			);
+			name = Tabs;
+			sourceTree = "<group>";
+		};
+		1DD60B9F16B2F0D000903CA7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1DD60BA016B2F10A00903CA7 /* TITreeDictionary.h */,
+				1DD60BA116B2F10A00903CA7 /* TITreeDictionary.m */,
+				1DD60BA316B2F79000903CA7 /* TITreeArray.h */,
+				1DD60BA416B2F79000903CA7 /* TITreeArray.m */,
+			);
+			name = Models;
+			path = TreeID;
+			sourceTree = "<group>";
+		};
+		1DD60BA616B31AC900903CA7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1D03EE8616B8326D00F15593 /* TIButton.h */,
+				1D03EE8716B8326D00F15593 /* TIButton.m */,
+				1DE2031216B844D000C026E3 /* TISingletonObjectWithArray.h */,
+				1DE2031316B844D000C026E3 /* TISingletonObjectWithArray.m */,
+				1D6671AD16B96F8000DA7103 /* TIWikiHandler.h */,
+				1D6671AE16B96F8000DA7103 /* TIWikiHandler.m */,
+			);
+			name = Extensions;
+			path = TreeID;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1DD60B2E16B2E9D400903CA7 /* TreeID */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DD60B6216B2E9D400903CA7 /* Build configuration list for PBXNativeTarget "TreeID" */;
+			buildPhases = (
+				1DD60B2B16B2E9D400903CA7 /* Sources */,
+				1DD60B2C16B2E9D400903CA7 /* Frameworks */,
+				1DD60B2D16B2E9D400903CA7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TreeID;
+			productName = TreeID;
+			productReference = 1DD60B2F16B2E9D400903CA7 /* TreeID.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1DD60B4F16B2E9D400903CA7 /* TreeIDTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DD60B6516B2E9D400903CA7 /* Build configuration list for PBXNativeTarget "TreeIDTests" */;
+			buildPhases = (
+				1DD60B4B16B2E9D400903CA7 /* Sources */,
+				1DD60B4C16B2E9D400903CA7 /* Frameworks */,
+				1DD60B4D16B2E9D400903CA7 /* Resources */,
+				1DD60B4E16B2E9D400903CA7 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1DD60B5616B2E9D400903CA7 /* PBXTargetDependency */,
+			);
+			name = TreeIDTests;
+			productName = TreeIDTests;
+			productReference = 1DD60B5016B2E9D400903CA7 /* TreeIDTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1DD60B2616B2E9D400903CA7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = TI;
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "Noah Blake";
+			};
+			buildConfigurationList = 1DD60B2916B2E9D400903CA7 /* Build configuration list for PBXProject "TreeID" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 1DD60B2416B2E9D400903CA7;
+			productRefGroup = 1DD60B3016B2E9D400903CA7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1DD60B2E16B2E9D400903CA7 /* TreeID */,
+				1DD60B4F16B2E9D400903CA7 /* TreeIDTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1DD60B2D16B2E9D400903CA7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1DD60B3E16B2E9D400903CA7 /* InfoPlist.strings in Resources */,
+				1DD60B4616B2E9D400903CA7 /* Default.png in Resources */,
+				1DD60B4816B2E9D400903CA7 /* Default@2x.png in Resources */,
+				1DD60B4A16B2E9D400903CA7 /* Default-568h@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1DD60B4D16B2E9D400903CA7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1DD60B5C16B2E9D400903CA7 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1DD60B4E16B2E9D400903CA7 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1DD60B2B16B2E9D400903CA7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1DD60B4016B2E9D400903CA7 /* main.m in Sources */,
+				1DD60B4416B2E9D400903CA7 /* TIAppDelegate.m in Sources */,
+				1DD60B8F16B2EE3D00903CA7 /* TITabBarController.m in Sources */,
+				1DD60B9216B2EEBA00903CA7 /* TICladisticViewController.m in Sources */,
+				1DD60B9516B2EEEC00903CA7 /* TISearchTableViewController.m in Sources */,
+				1DD60B9816B2EF0900903CA7 /* TISavedTableViewController.m in Sources */,
+				1DD60B9B16B2EF6900903CA7 /* TIBaseTableViewController.m in Sources */,
+				1DD60B9E16B2EF8800903CA7 /* TIBaseViewController.m in Sources */,
+				1DD60BA216B2F10A00903CA7 /* TITreeDictionary.m in Sources */,
+				1DD60BA516B2F79000903CA7 /* TITreeArray.m in Sources */,
+				1D03EE8816B8326D00F15593 /* TIButton.m in Sources */,
+				1DE2031416B844D000C026E3 /* TISingletonObjectWithArray.m in Sources */,
+				1D6671AF16B96F8000DA7103 /* TIWikiHandler.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1DD60B4B16B2E9D400903CA7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1DD60B5F16B2E9D400903CA7 /* TreeIDTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1DD60B5616B2E9D400903CA7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1DD60B2E16B2E9D400903CA7 /* TreeID */;
+			targetProxy = 1DD60B5516B2E9D400903CA7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1DD60B3C16B2E9D400903CA7 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1DD60B3D16B2E9D400903CA7 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		1DD60B5A16B2E9D400903CA7 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1DD60B5B16B2E9D400903CA7 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1DD60B6016B2E9D400903CA7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1DD60B6116B2E9D400903CA7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1DD60B6316B2E9D400903CA7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TreeID/TreeID-Prefix.pch";
+				INFOPLIST_FILE = "TreeID/TreeID-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		1DD60B6416B2E9D400903CA7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TreeID/TreeID-Prefix.pch";
+				INFOPLIST_FILE = "TreeID/TreeID-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		1DD60B6616B2E9D400903CA7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TreeID.app/TreeID";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TreeID/TreeID-Prefix.pch";
+				INFOPLIST_FILE = "TreeIDTests/TreeIDTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		1DD60B6716B2E9D400903CA7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TreeID.app/TreeID";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TreeID/TreeID-Prefix.pch";
+				INFOPLIST_FILE = "TreeIDTests/TreeIDTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DD60B2916B2E9D400903CA7 /* Build configuration list for PBXProject "TreeID" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DD60B6016B2E9D400903CA7 /* Debug */,
+				1DD60B6116B2E9D400903CA7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DD60B6216B2E9D400903CA7 /* Build configuration list for PBXNativeTarget "TreeID" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DD60B6316B2E9D400903CA7 /* Debug */,
+				1DD60B6416B2E9D400903CA7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DD60B6516B2E9D400903CA7 /* Build configuration list for PBXNativeTarget "TreeIDTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DD60B6616B2E9D400903CA7 /* Debug */,
+				1DD60B6716B2E9D400903CA7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1DD60B2616B2E9D400903CA7 /* Project object */;
+}
