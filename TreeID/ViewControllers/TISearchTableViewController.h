@@ -10,7 +10,7 @@
 
 @interface TISearchTableViewController : UITableViewController <UISearchBarDelegate,UISearchDisplayDelegate,UITableViewDataSource,UITableViewDelegate>
 
-@property (nonatomic, retain) TITreeArray *treeArray;
+@property (nonatomic, retain) NSArray *treeArray;
 @property (nonatomic, retain) NSMutableArray *filteredTreeArray;
 
 @property (nonatomic, copy) NSString *savedSearchTerm;

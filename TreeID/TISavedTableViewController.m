@@ -79,7 +79,12 @@
     if (emptyFlag == YES)
     {
         cell.textLabel.text = @"Add some favorites!";
-
+        DLog(@"table is empty");
+        DLog(@"Title of shareButton: %@", _shareButton.undisplayedTitle);
+        //clear button from accessory 
+        UIView *tmpView = [[UIView alloc] init];
+        cell.accessoryView = tmpView;
+        [tmpView release];
     }
     
     else if (indexPath.row < FAVORITEARRAY.count)
@@ -108,11 +113,11 @@
     NSArray *tmpStringArray = [NSArray arrayWithObject: tmpMutableString];
     UIActivityViewController *tmpActivityViewController = [[UIActivityViewController alloc] initWithActivityItems: tmpStringArray applicationActivities: nil];
     [self.navigationController presentViewController: tmpActivityViewController animated:YES completion: NULL];
+    [tmpActivityViewController release];
 }
 
 - (void) viewDidAppear:(BOOL)animated
 {
-    
     [self.tableView reloadData];
     //make the array refresh itself
 }

@@ -11,12 +11,12 @@
 #import "TIButton.h"
 #import "TIWikiHandler.h"
 #import "TISingletonObjectWithArray.h"
-#import "TICell.h"
 
 
 @interface TISearchTableViewController ()
 {
     UIView *_favoriteView;
+    UISearchDisplayController *_searchDisplayController;
 }
 @end
 
@@ -38,15 +38,16 @@
     [super viewDidLoad];
     
     
-    [self setTreeArray:  [[[TITreeArray alloc] init] retain]];
+    [self setTreeArray: [TITreeArray treeArray]];
     self.filteredTreeArray = [NSMutableArray arrayWithCapacity: self.treeArray.count];
     
     UISearchBar *tmpSearchBar = [[UISearchBar alloc] initWithFrame: CGRectMake(0, 0, 320, 44)];
     self.tableView.tableHeaderView = tmpSearchBar;
     
-    //gives the tableViewController a search display controller and thereby access to the the delegate methods that relate to filtering the tableView
-    UISearchDisplayController *tmpController = [[UISearchDisplayController alloc] initWithSearchBar:tmpSearchBar contentsController: self];
     
+    //gives the tableViewController a search display controller and thereby access to the the delegate methods that relate to filtering the tableView
+    _searchDisplayController = [[UISearchDisplayController alloc] initWithSearchBar:tmpSearchBar contentsController: self];
+    [tmpSearchBar release];
     self.searchDisplayController.searchResultsDelegate = self;
     self.searchDisplayController.searchResultsDataSource = self;
     self.searchDisplayController.delegate = self;
@@ -87,6 +88,7 @@
 {
 	[_treeArray release];
 	[_filteredTreeArray release];
+    [_searchDisplayController release];
 	
 	[super dealloc];
 }

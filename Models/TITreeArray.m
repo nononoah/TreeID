@@ -11,10 +11,10 @@
 
 @implementation TITreeArray
 
-- (id) init
++ (NSArray *) treeArray
 {
     TITreeDictionary *tmpTreeDictionary = [[TITreeDictionary alloc] init];
-    NSMutableArray *tmpMutableArray = [[[NSMutableArray alloc] init] retain];
+    NSMutableArray *tmpMutableArray = [[[NSMutableArray alloc] init] autorelease];
     
     //this loop separates all of the individual trees from the cladistic dictionary of trees and their descriptors
     for (id key in tmpTreeDictionary)
@@ -26,8 +26,7 @@
             //DLog(@"Object added of class: %@", [[[tmpTreeDictionary objectForKey: key] objectAtIndex:0] class]);
         }
     }
-    self = [NSArray arrayWithArray: tmpMutableArray];
-    return self;
+    return [NSArray arrayWithArray: tmpMutableArray];
 }
 
 

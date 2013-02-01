@@ -47,6 +47,7 @@
     NSArray *tmpArray = [_treeDictionary objectForKey: @"START"];
     TICladisticViewController *tmpController = [[TICladisticViewController alloc] initWithButtonArray: tmpArray];
     [self.navigationController pushViewController: tmpController animated:YES];
+    [tmpController release];
 }
 
 - (void) setUpButtons: (NSArray *) inArray

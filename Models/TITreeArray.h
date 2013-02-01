@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface TITreeArray : NSArray
+@interface TITreeArray : NSObject
 
++ (NSArray *) treeArray;
 @end

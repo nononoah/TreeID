@@ -38,6 +38,7 @@
 		}
         
         [self setViewControllers: tmpMutableArray];
+        [tmpMutableArray release];
     }
     return self;
 }
