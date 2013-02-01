@@ -40,4 +40,16 @@
     [inController.navigationController pushViewController: tmpController animated:YES];
     [tmpController release];
 }
+
++ (NSString *) stringToURL:(NSString *)inString
+{
+    NSMutableString *tmpURLString = [NSMutableString stringWithString: @"http://en.m.wikipedia.org/wiki/"];
+    
+    NSMutableString *tmpString = [NSMutableString stringWithString: [inString lowercaseString]];
+    NSArray *tmpArray = [tmpString componentsSeparatedByCharactersInSet :[NSCharacterSet whitespaceCharacterSet]];
+    NSString *tmpNoSpaceString = [tmpArray componentsJoinedByString:@"_"];
+    
+    [tmpURLString appendString: tmpNoSpaceString];
+    return tmpURLString;
+}
 @end

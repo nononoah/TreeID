@@ -11,6 +11,7 @@
 #import "TIButton.h"
 #import "TIWikiHandler.h"
 #import "TISingletonObjectWithArray.h"
+#import "TICell.h"
 
 
 @interface TISearchTableViewController ()
@@ -133,6 +134,7 @@
     }
     
 #pragma mark Favorite button
+    
     TIButton *tmpFavoriteButton = [TIButton buttonWithType:UIButtonTypeCustom];
     [tmpFavoriteButton setFrame:CGRectMake(0, 0, 30, 30)];
     [tmpFavoriteButton setBackgroundColor: [UIColor redColor]];
@@ -140,13 +142,13 @@
     tmpFavoriteButton.titleLabel.adjustsFontSizeToFitWidth = YES;
     tmpFavoriteButton.undisplayedTitle = [_treeArray objectAtIndex: indexPath.row];
     tmpFavoriteButton.buttonRow = indexPath.row;
-    [tmpFavoriteButton addTarget: self action:@selector(askToAddFavorite:) forControlEvents: UIControlEventTouchUpInside];
+    [tmpFavoriteButton addTarget: self action:@selector(addFavorite:) forControlEvents: UIControlEventTouchUpInside];
     cell.accessoryView = tmpFavoriteButton;
     
     return cell;
     
 }
-
+/*
 - (void) askToAddFavorite: (TIButton *) sender
 {
     //remove a subview if you have more subviews than trees (if two favorite buttons are clicked consecutively, remove one)
@@ -203,9 +205,10 @@
     [_favoriteView addSubview: tmpConfirmButton];
     [_favoriteView addSubview: tmpCancelButton];
 }
+*/
 - (void) addFavorite: (TIButton *) sender
 {
-    //check to see if the tree has already been added. If it has, don't add it again.
+    //check to see if the tree has already been added. If it has, don't add it again and return the button to its original state.
     BOOL tmpFlagForArrayAdd = YES;
     for(NSString *tmpString in FAVORITEARRAY)
     {
@@ -218,7 +221,18 @@
     
     if (tmpFlagForArrayAdd)
     {
+        [sender setTitle: @"FAV'd" forState: UIControlStateNormal];
+        [sender setBackgroundColor: [UIColor blueColor]];
+        
         [FAVORITEARRAY addObject: sender.undisplayedTitle];
+        DLog (@"Added to singleton, current array count: %i", FAVORITEARRAY.count);
+    }
+    
+    else
+    {
+        [sender setTitle: @"FAV" forState: UIControlStateNormal];
+        [sender setBackgroundColor: [UIColor redColor]];
+        [FAVORITEARRAY removeObject: sender.undisplayedTitle];
         DLog (@"Added to singleton, current array count: %i", FAVORITEARRAY.count);
     }
     

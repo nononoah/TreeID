@@ -10,4 +10,6 @@
 
 @interface TIWikiHandler : NSObject
 + (void) stringToURL: (NSString *) inString andPushFor: (UIViewController *) inController;
++ (NSString *) stringToURL:(NSString *)inString;
+
 @end

@@ -25,7 +25,6 @@
     if (self)
     {
         _buttonArray = [NSArray arrayWithArray: inArray];
-        DLog (@"init of TICVC");
     }
     return self;
 }
@@ -33,7 +32,6 @@
 - (void)viewDidLoad
 {
    //uses TIBaseViewController's methods to do everything, viewDidLoad differs primarily to separate first screen from those that follow
-    DLog (@"view did load of TICVC");
     [self setUpButtons: _buttonArray];
 }
 

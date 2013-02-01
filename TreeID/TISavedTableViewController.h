@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 Noah Blake. All rights reserved.
 //
 
-#import "TIBaseTableViewController.h"
+#import <UIKit/UIKit.h>
 
-@interface TISavedTableViewController : TIBaseTableViewController
+@interface TISavedTableViewController : UITableViewController
 
 @end

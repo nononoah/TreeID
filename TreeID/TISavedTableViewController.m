@@ -12,9 +12,11 @@
 #import "TIWikiHandler.h"
 #import "TISingletonObjectWithArray.h"
 
+
 @interface TISavedTableViewController ()
 {
     BOOL emptyFlag;
+    TIButton *_shareButton;
 }
 @end
 
@@ -77,14 +79,35 @@
     if (emptyFlag == YES)
     {
         cell.textLabel.text = @"Add some favorites!";
+
     }
     
     else if (indexPath.row < FAVORITEARRAY.count)
     {
         cell.textLabel.text = [FAVORITEARRAY objectAtIndex: indexPath.row];
+#pragma mark Share button
+        _shareButton = [TIButton buttonWithType:UIButtonTypeCustom];
+        [_shareButton setFrame:CGRectMake(0, 0, 30, 30)];
+        [_shareButton setBackgroundColor: [UIColor  darkGrayColor]];
+        [_shareButton setTitle: @"Share" forState: UIControlStateNormal];
+        _shareButton.titleLabel.adjustsFontSizeToFitWidth = YES;
+        _shareButton.buttonRow = indexPath.row;
+        _shareButton.undisplayedTitle = [FAVORITEARRAY objectAtIndex: indexPath.row];
+        [_shareButton addTarget: self action:@selector(shareThisTree:) forControlEvents: UIControlEventTouchUpInside];
+        cell.accessoryView = _shareButton;
     }
-    
     return cell;
+}
+
+- (void) shareThisTree: (TIButton *) sender
+{
+    NSMutableString *tmpMutableString = [NSMutableString stringWithString: @"Look at this amazing tree: "];
+    NSMutableString *tmpURLString = [NSMutableString stringWithString: [TIWikiHandler stringToURL: sender.undisplayedTitle]];
+    [tmpMutableString appendString: tmpURLString];
+    
+    NSArray *tmpStringArray = [NSArray arrayWithObject: tmpMutableString];
+    UIActivityViewController *tmpActivityViewController = [[UIActivityViewController alloc] initWithActivityItems: tmpStringArray applicationActivities: nil];
+    [self.navigationController presentViewController: tmpActivityViewController animated:YES completion: NULL];
 }
 
 - (void) viewDidAppear:(BOOL)animated
