@@ -34,6 +34,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
    
 }
 
@@ -83,17 +84,6 @@
         cell.textLabel.text = [FAVORITEARRAY objectAtIndex: indexPath.row];
     }
     
-    /*
-#pragma mark Favorite button
-    TIButton *tmpFavoriteButton = [TIButton buttonWithType:UIButtonTypeCustom];
-    [tmpFavoriteButton setFrame:CGRectMake(0, 0, 30, 30)];
-    [tmpFavoriteButton setBackgroundColor: [UIColor redColor]];
-    [tmpFavoriteButton setTitle: @"FAV" forState: UIControlStateNormal];
-    tmpFavoriteButton.titleLabel.adjustsFontSizeToFitWidth = YES;
-    tmpFavoriteButton.title = [_treeArray objectAtIndex: indexPath.row];
-    [tmpFavoriteButton addTarget: self action:@selector(addFavorite:) forControlEvents: UIControlEventTouchUpInside];
-    cell.accessoryView = tmpFavoriteButton;
-    */
     return cell;
 }
 
@@ -111,6 +101,27 @@
     if (emptyFlag == NO)
         [TIWikiHandler stringToURL: [FAVORITEARRAY objectAtIndex: indexPath.row] andPushFor: self];
 }
+
+
+- (void) tableView: (UITableView *) tableView commitEditingStyle: (UITableViewCellEditingStyle) editingStyle	forRowAtIndexPath: (NSIndexPath *) indexPath
+{
+	if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        [FAVORITEARRAY removeObjectAtIndex: indexPath.row];
+        //meant for this to solve the issue that results when you empty the table of data - no luck
+        if (FAVORITEARRAY.count == 0)
+        {
+            [FAVORITEARRAY addObject: @"Add some favorites!"];
+        }
+        
+        NSArray *indexPaths = [NSArray arrayWithObject: indexPath];
+		[tableView deleteRowsAtIndexPaths: indexPaths withRowAnimation: UITableViewRowAnimationFade];
+        
+      
+	}
+}
+
+    
 - (void) dealloc
 {
     [super dealloc];

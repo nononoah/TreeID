@@ -35,21 +35,23 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     
     [self setTreeArray:  [[[TITreeArray alloc] init] retain]];
     self.filteredTreeArray = [NSMutableArray arrayWithCapacity: self.treeArray.count];
     
     UISearchBar *tmpSearchBar = [[UISearchBar alloc] initWithFrame: CGRectMake(0, 0, 320, 44)];
-    tmpSearchBar.delegate = self;
-   
-    self.searchDisplayController.searchResultsTableView.allowsSelection = YES;
-    self.searchDisplayController.searchResultsTableView.allowsSelectionDuringEditing = YES;
-    
     self.tableView.tableHeaderView = tmpSearchBar;
     
+    //gives the tableViewController a search display controller and thereby access to the the delegate methods that relate to filtering the tableView
+    UISearchDisplayController *tmpController = [[UISearchDisplayController alloc] initWithSearchBar:tmpSearchBar contentsController: self];
+    
+    self.searchDisplayController.searchResultsDelegate = self;
+    self.searchDisplayController.searchResultsDataSource = self;
+    self.searchDisplayController.delegate = self;
+    
     //if a search is happening, hold the results of that search
-   
+    
     if (self.savedSearchTerm)
 	{
         [self.searchDisplayController setActive: self.searchWasActive];
@@ -149,8 +151,9 @@
 {
     //remove a subview if you have more subviews than trees (if two favorite buttons are clicked consecutively, remove one)
     NSArray *tmpArray = self.view.subviews;
-    //11 is the number of views stored by a tableview at a time
-    if (tmpArray.count > 11)
+    //11 is the number of views stored by a tableview at a time, +2 if you're searching, +1 if you've come back from a search (a problem with this logic that I decided to leave alone)
+    DLog(@"Number of subviews: %i", tmpArray.count);
+    if ( (tmpArray.count > 13) || ((tmpArray.count > 11) && (!self.searchDisplayController.isActive)) )
     {
         DLog(@"removed a subview");
         [_favoriteView removeFromSuperview];
@@ -160,7 +163,7 @@
     //pop up view to confirm add favorite
     int tmpViewHeight = 90;
     int tmpViewWidth = 100;
-   
+    
     int yPosition = (sender.buttonRow * self.tableView.rowHeight) + (self.tableView.rowHeight / 2)  - (tmpViewHeight / 2);
     int marginBetweenButtons = 10;
     _favoriteView = [[UIView alloc] initWithFrame: CGRectMake(200, yPosition, tmpViewWidth, tmpViewHeight)];
@@ -176,10 +179,10 @@
     [tmpConfirmButton setBackgroundColor: [UIColor redColor]];
     [tmpConfirmButton setTitle: @"Confirm" forState: UIControlStateNormal];
     tmpConfirmButton.titleLabel.font  = [UIFont systemFontOfSize: 12.0];
-     //tmpConfirmButton.titleLabel.adjustsFontSizeToFitWidth = YES;
-     //pass the title of the relevant cell along
+    //tmpConfirmButton.titleLabel.adjustsFontSizeToFitWidth = YES;
+    //pass the title of the relevant cell along
     tmpConfirmButton.undisplayedTitle = [_treeArray objectAtIndex: sender.buttonRow];
-
+    
     [tmpConfirmButton addTarget: self action:@selector(addFavorite:) forControlEvents: UIControlEventTouchUpInside];
     
     
@@ -218,7 +221,7 @@
         [FAVORITEARRAY addObject: sender.undisplayedTitle];
         DLog (@"Added to singleton, current array count: %i", FAVORITEARRAY.count);
     }
-
+    
 }
 
 
@@ -246,7 +249,7 @@
 - (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
 {
 	[self.filteredTreeArray removeAllObjects];
-    
+    self.searchWasActive = YES;
     
     for(NSString *tmpString in _treeArray)
     {
@@ -260,7 +263,7 @@
 }
 
 //these methods reload the table in response to searching
- 
+
 #pragma mark -
 #pragma mark UISearchDisplayController Delegate Methods
 

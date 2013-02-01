@@ -9,7 +9,7 @@
 #import "TIBaseTableViewController.h"
 @class TITreeArray;
 
-@interface TISearchTableViewController : TIBaseTableViewController <UISearchBarDelegate,UISearchDisplayDelegate,UITableViewDataSource,UITableViewDelegate>
+@interface TISearchTableViewController : UITableViewController <UISearchBarDelegate,UISearchDisplayDelegate,UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic, retain) TITreeArray *treeArray;
 @property (nonatomic, retain) NSMutableArray *filteredTreeArray;
