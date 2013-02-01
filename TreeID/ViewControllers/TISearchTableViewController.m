@@ -26,6 +26,7 @@
     self = [super init];
     if (self) {
         self.title = @"Search";
+        self.tableView.delegate = self;
     }
     return self;
 }
@@ -40,10 +41,10 @@
     self.filteredTreeArray = [NSMutableArray arrayWithCapacity: self.treeArray.count];
     
     UISearchBar *tmpSearchBar = [[UISearchBar alloc] initWithFrame: CGRectMake(0, 0, 320, 44)];
-    UISearchDisplayController *tmpController = [[UISearchDisplayController alloc] initWithSearchBar: tmpSearchBar contentsController:self];
-    
-    tmpController.searchResultsDataSource = self;
-    tmpController.delegate = self;
+    tmpSearchBar.delegate = self;
+   
+    self.searchDisplayController.searchResultsTableView.allowsSelection = YES;
+    self.searchDisplayController.searchResultsTableView.allowsSelectionDuringEditing = YES;
     
     self.tableView.tableHeaderView = tmpSearchBar;
     
@@ -226,8 +227,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    DLog(@"Is search display active: %c", self.searchDisplayController.isActive);
     
-    if (tableView == self.searchDisplayController.searchResultsTableView)
+    if (self.searchDisplayController.isActive)
 	{
         [TIWikiHandler stringToURL: [_filteredTreeArray objectAtIndex: indexPath.row] andPushFor: self];
     }
