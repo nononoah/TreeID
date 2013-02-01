@@ -53,6 +53,7 @@
 - (void) setUpButtons: (NSArray *) inArray
 {
     int sectionHeight = ([[UIScreen mainScreen] applicationFrame].size.height - (44 + 98)) / (inArray.count); //44 -> navbar, 98 -> tabbar
+    DLog(@"sectionHeght: %i", sectionHeight);
     int midScreen = ([[UIScreen mainScreen] applicationFrame].size.width) / 2;
     
     for (int i = 0; i < inArray.count; ++i)
@@ -72,7 +73,7 @@
             tmpButton.titleLabel.adjustsFontSizeToFitWidth = YES;
         }
         int buttonHeight = [title sizeWithFont: tmpButton.titleLabel.font].height + 5;
-        tmpButton.frame = CGRectMake(midScreen - ((buttonWidth) / 2), (sectionHeight * i) + ((sectionHeight / 2) - (buttonHeight / 2)) , buttonWidth, buttonHeight);
+        tmpButton.frame = CGRectMake(midScreen - ((buttonWidth) / 2), (sectionHeight * i) + ((sectionHeight / 2) - (buttonHeight / 2)) + 20, buttonWidth, buttonHeight);
         
         [self.view addSubview: tmpButton];
         
