@@ -11,15 +11,13 @@
 #import "TIButton.h"
 #import "TIWikiHandler.h"
 #import "TISingletonObjectWithArray.h"
-#import "TITreeForCell.h"
+
 
 
 @interface TISearchTableViewController ()
 {
     UIView *_favoriteView;
     UISearchDisplayController *_searchDisplayController;
-    TITreeForCell *_treeForCell;
-    NSMutableArray *_arrayOfCells;
 }
 @end
 
@@ -140,7 +138,7 @@
     tmpFavoriteButton.buttonRow = indexPath.row;
     [tmpFavoriteButton addTarget: self action:@selector(addFavorite:) forControlEvents: UIControlEventTouchUpInside];
    
-    
+    //cell text comes from filtered array when searchDisplayController is active
     if (tableView == self.searchDisplayController.searchResultsTableView)
 	{
         cell.textLabel.text = [self.filteredTreeArray objectAtIndex: indexPath.row];
@@ -151,13 +149,14 @@
             NSComparisonResult result = [tmpString compare: tmpFavoriteButton.undisplayedTitle options:(NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch) range:NSMakeRange(0, tmpString.length)];
             if (result == NSOrderedSame)
             {
-                DLog(@"Search display controller found that the button had already been pressed in tableView");
+               // DLog(@"Search display controller found that the button had already been pressed in tableView");
                 [tmpFavoriteButton setBackgroundColor: [UIColor blueColor]];
                 [tmpFavoriteButton setTitle: @"FAV'd" forState: UIControlStateNormal];
             }
         }
     }
     
+    //cell text comes from unfiltered tree array if searchDisplayController isn't active
 	else
 	{
         cell.textLabel.text = [self.treeArray objectAtIndex:indexPath.row];
@@ -229,7 +228,8 @@
 */
 - (void) addFavorite: (TIButton *) sender
 {
-    //check to see if the tree has already been added to the singleton. If it has, don't add it again and return the button to its original state.
+    // this function checks to see if the tree has already been added to the singleton. If the tree has, the function flags it to prevent it from being added again. The button is then returned to its original state.
+    
     BOOL tmpFlagForArrayAdd = YES;
     
     //do you exist in the singleton? If so, flag to not add. 
@@ -252,7 +252,7 @@
         DLog (@"Added to singleton, current array count: %i", FAVORITEARRAY.count);
     }
     
-    //if the button is being pressed for the nth time, where n is an even number, it is being unfavorited. Return the button to its
+    //if the button is being pressed for the nth time, where n is an even number, it is being unfavorited. Return the button to its unpressed state.
     else
     {
         [sender setTitle: @"FAV" forState: UIControlStateNormal];
@@ -271,6 +271,7 @@
 {
     DLog(@"Is search display active: %c", self.searchDisplayController.isActive);
     
+    //wikiHandler converts the string from the array into a URL that is then used to push a view controller containing a webview
     if (self.searchDisplayController.isActive)
 	{
         [TIWikiHandler stringToURL: [_filteredTreeArray objectAtIndex: indexPath.row] andPushFor: self];
@@ -290,6 +291,7 @@
 	[self.filteredTreeArray removeAllObjects];
     self.searchWasActive = YES;
     
+    //tmpString steps through the treeArray. If it a piece of it (determined by the size of the search text) matches the search text, it is added to the filteredTreeArray, which is what fills the searchDisplayController tableView.
     for(NSString *tmpString in _treeArray)
     {
         NSComparisonResult result = [tmpString compare: searchText options:(NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch) range:NSMakeRange(0, searchText.length)];
@@ -308,6 +310,7 @@
 
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
 {
+    //since the objects currently have no categorical organization (no scope), these functions aren't doing anything. 
     [self filterContentForSearchText:searchString scope:
      [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:[self.searchDisplayController.searchBar selectedScopeButtonIndex]]];
     

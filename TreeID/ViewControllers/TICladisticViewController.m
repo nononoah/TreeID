@@ -13,7 +13,6 @@
 {
     UIButton *_button;
     NSArray *_buttonArray;
-    TITreeDictionary *_treeDictionary;
 }
 @end
 
@@ -43,6 +42,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void) dealloc
+{
+    //not sure I need to be deallocing here, but figured it was better safe than sorry
+    [_buttonArray release];
+    [super dealloc];
+}
 
 
 @end

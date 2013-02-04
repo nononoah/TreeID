@@ -43,7 +43,7 @@
 
 - (void) pushFromStart
 {
-    //because of the way I've built this, both the array and the controller can not be released. If they are, when the user reaches the end of the cladogram and attempts to press "start" again, the app will reach for a zombie. Is the solution here to make these instance variable that are released in dealloc? Is it not worth worrying about, since they're two objects that are made once and never remade - in other words, are minor leaks like this forgivable?
+    //this is relatively abusive, and not how one should use a parent, but the parent here serves primarily to present the opening view (and the methods that help format the views that follow). This method marks the practical end of the parent's view life cycle. 
     NSArray *tmpArray = [_treeDictionary objectForKey: @"START"];
     TICladisticViewController *tmpController = [[TICladisticViewController alloc] initWithButtonArray: tmpArray];
     [self.navigationController pushViewController: tmpController animated:YES];
@@ -52,19 +52,24 @@
 
 - (void) setUpButtons: (NSArray *) inArray
 {
+    //divide the screen into a number of sections equal to the number of buttons
     int sectionHeight = ([[UIScreen mainScreen] applicationFrame].size.height - (44 + 98)) / (inArray.count); //44 -> navbar, 98 -> tabbar
     DLog(@"sectionHeght: %i", sectionHeight);
-    int midScreen = ([[UIScreen mainScreen] applicationFrame].size.width) / 2;
     
+    //the x-coordinate of the middle of the screen, used to center buttons horizontally
+    int midScreenX = ([[UIScreen mainScreen] applicationFrame].size.width) / 2;
+    
+    //make as many buttons as the array (that the previously pressed button keyed) called for
     for (int i = 0; i < inArray.count; ++i)
     {
         UIButton *tmpButton = [UIButton buttonWithType: UIButtonTypeRoundedRect];
         
+        //the button's title is pulled from the array
         NSString *title = [inArray objectAtIndex:i];
         [tmpButton setTitle: title forState: UIControlStateNormal];
       
         
-        //autolayout would be smarter, but I'm not sure how to use it
+        //button width reflects title's length
         int buttonWidth = [title sizeWithFont: tmpButton.titleLabel.font].width + 5;
         //addional formatting for superwide buttons
         if (buttonWidth > [[UIScreen mainScreen] applicationFrame].size.width)
@@ -72,9 +77,18 @@
             buttonWidth = [[UIScreen mainScreen] applicationFrame].size.width - 20;
             tmpButton.titleLabel.adjustsFontSizeToFitWidth = YES;
         }
-        int buttonHeight = [title sizeWithFont: tmpButton.titleLabel.font].height + 5;
-        tmpButton.frame = CGRectMake(midScreen - ((buttonWidth) / 2), (sectionHeight * i) + ((sectionHeight / 2) - (buttonHeight / 2)) + 20, buttonWidth, buttonHeight);
         
+        //button's height is consistent among all buttons
+        int buttonHeight = [title sizeWithFont: tmpButton.titleLabel.font].height + 5;
+        
+        //frame centers the button horizontally and vertically
+        /*
+         vertical centering unpacked:    (sectionHeight * i)  -> jump to y position that corresponds with the top of the section
+                                      +  ((sectionHeight / 2) -> jump down to the middle of the section
+                                      -  (buttonHeight / 2)   -> move back up half the height of the button
+                                      +  20                   -> account for status bar
+        */
+        tmpButton.frame = CGRectMake(midScreenX - ((buttonWidth) / 2), (sectionHeight * i) + ((sectionHeight / 2) - (buttonHeight / 2)) + 20, buttonWidth, buttonHeight);
         [self.view addSubview: tmpButton];
         
         //if you haven't reached the end of a branch, set up buttons to push to next branches
@@ -98,7 +112,7 @@
             [popButton setTitle: tmpString forState: UIControlStateNormal];
             
             int popButtonWidth = [tmpString sizeWithFont: popButton.titleLabel.font].width;
-            popButton.frame = CGRectMake(midScreen - ((popButtonWidth) / 2), 50, popButtonWidth, buttonHeight);
+            popButton.frame = CGRectMake(midScreenX - ((popButtonWidth) / 2), 50, popButtonWidth, buttonHeight);
             
             [self.view addSubview: popButton];
             
@@ -111,7 +125,7 @@
 
 - (void) nextViewController: (id) sender
 {
-    //takes string from button, finds the array that corresponds to it in the "database", view did load and setUpButtons finishes the job
+    //takes string from button, finds the array that corresponds to it in the dictionary database, that array then dictates how many buttons are in the following view controller and what content these buttons contain. Refer to setUpButtons to see how this is done. 
     NSString *tmpString = [sender currentTitle];
     NSArray *tmpArray = [_treeDictionary objectForKey: tmpString];
     TICladisticViewController *tmpController = [[TICladisticViewController alloc] initWithButtonArray: tmpArray];
@@ -122,7 +136,7 @@
 - (void) pushToWiki: (id) sender
 {
     NSString *tmpString = [sender currentTitle];
-    DLog(@"Sender's title %@", tmpString);
+    DLog(@"Sender's title as it calls for wiki push %@", tmpString);
     [TIWikiHandler stringToURL: tmpString andPushFor: self];
 }
 - (void)didReceiveMemoryWarning
@@ -133,6 +147,7 @@
 
 - (void) dealloc
 {
+    [_treeDictionary release];
     [super dealloc];
 }
 

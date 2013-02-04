@@ -27,7 +27,7 @@
         NSArray *tmpArray = [NSArray arrayWithObjects: @"ID", @"Search", @"Saved", nil];
        int i = 0;
 
-        //the Luu tab bar construction approach
+        //the Luu tab bar construction approach. By generically init'ing these controllers, I put myself in a quandary that I solved through questionable means in the relationship between TIBaseViewController and TICladisticViewController. 
 		for (Class tmpClass in @[[TIBaseViewController class], [TISearchTableViewController class], [TISavedTableViewController class]])
 		{
 			UINavigationController *tmpNavController = [[UINavigationController alloc] initWithRootViewController:[[[tmpClass alloc] init] autorelease]];

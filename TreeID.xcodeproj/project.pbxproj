@@ -10,7 +10,6 @@
 		1D03EE8816B8326D00F15593 /* TIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D03EE8716B8326D00F15593 /* TIButton.m */; };
 		1D3E16F216BC5FF5009D2918 /* TIBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3E16F116BC5FF5009D2918 /* TIBaseViewController.m */; };
 		1D6671AF16B96F8000DA7103 /* TIWikiHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6671AE16B96F8000DA7103 /* TIWikiHandler.m */; };
-		1D76A82816C00953002FF1DE /* TITreeForCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D76A82716C00953002FF1DE /* TITreeForCell.m */; };
 		1DD60B3416B2E9D400903CA7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD60B3316B2E9D400903CA7 /* UIKit.framework */; };
 		1DD60B3616B2E9D400903CA7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD60B3516B2E9D400903CA7 /* Foundation.framework */; };
 		1DD60B3816B2E9D400903CA7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD60B3716B2E9D400903CA7 /* CoreGraphics.framework */; };
@@ -51,8 +50,6 @@
 		1D3E16F116BC5FF5009D2918 /* TIBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TIBaseViewController.m; path = ViewControllers/TIBaseViewController.m; sourceTree = "<group>"; };
 		1D6671AD16B96F8000DA7103 /* TIWikiHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TIWikiHandler.h; path = Extensions/TIWikiHandler.h; sourceTree = SOURCE_ROOT; };
 		1D6671AE16B96F8000DA7103 /* TIWikiHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TIWikiHandler.m; path = Extensions/TIWikiHandler.m; sourceTree = SOURCE_ROOT; };
-		1D76A82616C00953002FF1DE /* TITreeForCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TITreeForCell.h; sourceTree = "<group>"; };
-		1D76A82716C00953002FF1DE /* TITreeForCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TITreeForCell.m; sourceTree = "<group>"; };
 		1DD60B2F16B2E9D400903CA7 /* TreeID.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TreeID.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DD60B3316B2E9D400903CA7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1DD60B3516B2E9D400903CA7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -236,8 +233,6 @@
 				1DD60BA116B2F10A00903CA7 /* TITreeDictionary.m */,
 				1DD60BA316B2F79000903CA7 /* TITreeArray.h */,
 				1DD60BA416B2F79000903CA7 /* TITreeArray.m */,
-				1D76A82616C00953002FF1DE /* TITreeForCell.h */,
-				1D76A82716C00953002FF1DE /* TITreeForCell.m */,
 			);
 			name = Models;
 			path = TreeID;
@@ -379,7 +374,6 @@
 				1DE2031416B844D000C026E3 /* TISingletonObjectWithArray.m in Sources */,
 				1D6671AF16B96F8000DA7103 /* TIWikiHandler.m in Sources */,
 				1D3E16F216BC5FF5009D2918 /* TIBaseViewController.m in Sources */,
-				1D76A82816C00953002FF1DE /* TITreeForCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
