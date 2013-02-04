@@ -11,12 +11,15 @@
 #import "TIButton.h"
 #import "TIWikiHandler.h"
 #import "TISingletonObjectWithArray.h"
+#import "TITreeForCell.h"
 
 
 @interface TISearchTableViewController ()
 {
     UIView *_favoriteView;
     UISearchDisplayController *_searchDisplayController;
+    TITreeForCell *_treeForCell;
+    NSMutableArray *_arrayOfCells;
 }
 @end
 
@@ -28,6 +31,7 @@
     if (self) {
         self.title = @"Search";
         self.tableView.delegate = self;
+       
     }
     return self;
 }
@@ -125,16 +129,6 @@
 	}
     
     
-    if (tableView == self.searchDisplayController.searchResultsTableView)
-	{
-        cell.textLabel.text = [self.filteredTreeArray objectAtIndex: indexPath.row];
-    }
-    
-	else
-	{
-        cell.textLabel.text = [self.treeArray objectAtIndex:indexPath.row];
-    }
-    
 #pragma mark Favorite button
     
     TIButton *tmpFavoriteButton = [TIButton buttonWithType:UIButtonTypeCustom];
@@ -145,12 +139,37 @@
     tmpFavoriteButton.undisplayedTitle = [_treeArray objectAtIndex: indexPath.row];
     tmpFavoriteButton.buttonRow = indexPath.row;
     [tmpFavoriteButton addTarget: self action:@selector(addFavorite:) forControlEvents: UIControlEventTouchUpInside];
-    cell.accessoryView = tmpFavoriteButton;
+   
     
+    if (tableView == self.searchDisplayController.searchResultsTableView)
+	{
+        cell.textLabel.text = [self.filteredTreeArray objectAtIndex: indexPath.row];
+        
+        //alter the button if its been pressed in tableView. This block of code is repeated later. Perhaps I should use a block? This fixes an earlier bug, wherein the searchDisplayController's buttons wouldn't reflect whether they had or hadn't been pressed in the UITableView.
+        for(NSString *tmpString in FAVORITEARRAY)
+        {
+            NSComparisonResult result = [tmpString compare: tmpFavoriteButton.undisplayedTitle options:(NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch) range:NSMakeRange(0, tmpString.length)];
+            if (result == NSOrderedSame)
+            {
+                DLog(@"Search display controller found that the button had already been pressed in tableView");
+                [tmpFavoriteButton setBackgroundColor: [UIColor blueColor]];
+                [tmpFavoriteButton setTitle: @"FAV'd" forState: UIControlStateNormal];
+            }
+        }
+    }
+    
+	else
+	{
+        cell.textLabel.text = [self.treeArray objectAtIndex:indexPath.row];
+    }
+    
+
+    cell.accessoryView = tmpFavoriteButton;
     return cell;
     
 }
-/*
+/* The older, clumsier way the button would behave when pressed. 
+ 
 - (void) askToAddFavorite: (TIButton *) sender
 {
     //remove a subview if you have more subviews than trees (if two favorite buttons are clicked consecutively, remove one)
@@ -210,8 +229,10 @@
 */
 - (void) addFavorite: (TIButton *) sender
 {
-    //check to see if the tree has already been added. If it has, don't add it again and return the button to its original state.
+    //check to see if the tree has already been added to the singleton. If it has, don't add it again and return the button to its original state.
     BOOL tmpFlagForArrayAdd = YES;
+    
+    //do you exist in the singleton? If so, flag to not add. 
     for(NSString *tmpString in FAVORITEARRAY)
     {
         NSComparisonResult result = [tmpString compare: sender.undisplayedTitle options:(NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch) range:NSMakeRange(0, tmpString.length)];
@@ -221,6 +242,7 @@
         }
     }
     
+    //if you remain flagged to add, add to singleton and change the button to reflect this addition.
     if (tmpFlagForArrayAdd)
     {
         [sender setTitle: @"FAV'd" forState: UIControlStateNormal];
@@ -230,12 +252,13 @@
         DLog (@"Added to singleton, current array count: %i", FAVORITEARRAY.count);
     }
     
+    //if the button is being pressed for the nth time, where n is an even number, it is being unfavorited. Return the button to its
     else
     {
         [sender setTitle: @"FAV" forState: UIControlStateNormal];
         [sender setBackgroundColor: [UIColor redColor]];
         [FAVORITEARRAY removeObject: sender.undisplayedTitle];
-        DLog (@"Added to singleton, current array count: %i", FAVORITEARRAY.count);
+        DLog (@"Removed from singleton, current array count: %i", FAVORITEARRAY.count);
     }
     
 }

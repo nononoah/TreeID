@@ -12,6 +12,7 @@
 
 @property (nonatomic, copy) NSString *undisplayedTitle;
 @property int buttonRow;
+@property BOOL hasBeenPressed;
 
 
 @end
