@@ -10,6 +10,7 @@
 #import "TIBaseViewController.h"
 #import "TISearchTableViewController.h"
 #import "TISavedTableViewController.h"
+#import "TIApprovedTreesViewController.h"
 
 @interface TITabBarController ()
 
@@ -24,11 +25,11 @@
     
         
         NSMutableArray *tmpMutableArray = [[NSMutableArray alloc] init];
-        NSArray *tmpArray = [NSArray arrayWithObjects: @"ID", @"Search", @"Saved", nil];
+        NSArray *tmpArray = [NSArray arrayWithObjects: @"ID", @"Search", @"Saved", @"Approved", nil];
        int i = 0;
 
         //the Luu tab bar construction approach. By generically init'ing these controllers, I put myself in a quandary that I solved through questionable means in the relationship between TIBaseViewController and TICladisticViewController. 
-		for (Class tmpClass in @[[TIBaseViewController class], [TISearchTableViewController class], [TISavedTableViewController class]])
+		for (Class tmpClass in @[[TIBaseViewController class], [TISearchTableViewController class], [TISavedTableViewController class], [TIApprovedTreesViewController class]])
 		{
 			UINavigationController *tmpNavController = [[UINavigationController alloc] initWithRootViewController:[[[tmpClass alloc] init] autorelease]];
             tmpNavController.title = [tmpArray objectAtIndex: i];

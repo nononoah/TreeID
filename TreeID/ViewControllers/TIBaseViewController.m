@@ -11,9 +11,11 @@
 #import "TICladisticViewController.h"
 #import "TIWikiHandler.h"
 
+
 @interface TIBaseViewController ()
 {
     TITreeDictionary *_treeDictionary;
+    NSArray *arrayOfTrees;
 }
 @end
 
@@ -25,6 +27,7 @@
     if (self)
     {
         _treeDictionary = [[TITreeDictionary alloc] init];
+        
     }
     return self;
 }
@@ -33,12 +36,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     UIButton *tmpButton = [UIButton buttonWithType: UIButtonTypeRoundedRect];
     [tmpButton setTitle: @"Start" forState: UIControlStateNormal];
     tmpButton.frame = CGRectMake(200, 200, 80, 40);
     [self.view addSubview: tmpButton];
     [tmpButton addTarget: self action: @selector(pushFromStart) forControlEvents: UIControlEventTouchUpInside];
+}
+
+- (void) viewDidAppear:(BOOL)animated
+{
+
+  
 }
 
 - (void) pushFromStart
