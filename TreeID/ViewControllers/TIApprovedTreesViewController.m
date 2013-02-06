@@ -9,6 +9,8 @@
 #import "TIApprovedTreesViewController.h"
 #import "TITreeJSON.h"
 #import "TIWikiHandler.h"
+#import "TIButton.h"
+#import "TISingletonObjectWithArray.h"
 
 @interface TIApprovedTreesViewController ()
 {
@@ -27,7 +29,7 @@
         [TITreeJSON arrayOfTreesFromJSONwithSuccessBlock: ^(NSArray *inArray) {
             self.arrayOfTrees = inArray;
             DLog(@"Called for JSON, returned array of count: %i", inArray.count);
-            DLog(@"Called for JSON, tied array to array of count: %i", self.arrayOfTrees.count);
+            DLog(@"Called for JSON, tied array to property of count: %i", self.arrayOfTrees.count);
         }];
         
     }
@@ -60,10 +62,11 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    DLog(@"Array count as of number of rows and sections: %i", self.arrayOfTrees.count);
-    DLog(@"Object at index 0: %@", [self.arrayOfTrees objectAtIndex: 0]);
+    //DLog(@"Array count as of number of rows and sections: %i", self.arrayOfTrees.count);
+    //DLog(@"Object at index 0: %@", [self.arrayOfTrees objectAtIndex: 0]);
     return self.arrayOfTrees.count;
 }
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -77,6 +80,19 @@
    if (indexPath.row < self.arrayOfTrees.count)
     {
         cell.textLabel.text = [self.arrayOfTrees objectAtIndex: indexPath.row];
+        
+        TIButton *tmpFavoriteButton = [TIButton buttonWithType:UIButtonTypeCustom];
+        [tmpFavoriteButton setFrame:CGRectMake(0, 0, 30, 30)];
+        [tmpFavoriteButton setBackgroundColor: [UIColor redColor]];
+        [tmpFavoriteButton setTitle: @"FAV" forState: UIControlStateNormal];
+        tmpFavoriteButton.titleLabel.adjustsFontSizeToFitWidth = YES;
+        tmpFavoriteButton.undisplayedTitle = [self.arrayOfTrees objectAtIndex: indexPath.row];
+        tmpFavoriteButton.buttonRow = indexPath.row;
+        [tmpFavoriteButton addTarget: self action:@selector(addFavorite:) forControlEvents: UIControlEventTouchUpInside];
+        
+        [self testForDuplicity: tmpFavoriteButton];
+        cell.accessoryView = tmpFavoriteButton;
+    
     }
     return cell;
 }

@@ -44,6 +44,7 @@
     self.filteredTreeArray = [NSMutableArray arrayWithCapacity: self.treeArray.count];
     
     UISearchBar *tmpSearchBar = [[UISearchBar alloc] initWithFrame: CGRectMake(0, 0, 320, 44)];
+    tmpSearchBar.delegate = self;
     self.tableView.tableHeaderView = tmpSearchBar;
     
     
@@ -64,8 +65,6 @@
         
         self.savedSearchTerm = nil;
     }
-	
-	[self.tableView reloadData];
 }
 
 - (void)viewDidUnload
@@ -129,6 +128,7 @@
     
 #pragma mark Favorite button
     
+    
     TIButton *tmpFavoriteButton = [TIButton buttonWithType:UIButtonTypeCustom];
     [tmpFavoriteButton setFrame:CGRectMake(0, 0, 30, 30)];
     [tmpFavoriteButton setBackgroundColor: [UIColor redColor]];
@@ -141,29 +141,20 @@
     //cell text comes from filtered array when searchDisplayController is active
     if (tableView == self.searchDisplayController.searchResultsTableView)
 	{
+         //alter the button if its been pressed in tableView. This fixes an earlier bug, wherein the searchDisplayController's buttons wouldn't reflect whether they had or hadn't been pressed in the UITableView.
         cell.textLabel.text = [self.filteredTreeArray objectAtIndex: indexPath.row];
-        
-        //alter the button if its been pressed in tableView. This block of code is repeated later. Perhaps I should use a block? This fixes an earlier bug, wherein the searchDisplayController's buttons wouldn't reflect whether they had or hadn't been pressed in the UITableView.
-        for(NSString *tmpString in FAVORITEARRAY)
-        {
-            NSComparisonResult result = [tmpString compare: tmpFavoriteButton.undisplayedTitle options:(NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch) range:NSMakeRange(0, tmpString.length)];
-            if (result == NSOrderedSame)
-            {
-               // DLog(@"Search display controller found that the button had already been pressed in tableView");
-                [tmpFavoriteButton setBackgroundColor: [UIColor blueColor]];
-                [tmpFavoriteButton setTitle: @"FAV'd" forState: UIControlStateNormal];
-            }
-        }
+        [self setSearchResultButton: tmpFavoriteButton toCorrectStateForRow: cell.textLabel.text];
+        cell.accessoryView = tmpFavoriteButton;
     }
     
     //cell text comes from unfiltered tree array if searchDisplayController isn't active
 	else
 	{
+        [self testForDuplicity: tmpFavoriteButton];
         cell.textLabel.text = [self.treeArray objectAtIndex:indexPath.row];
+        cell.accessoryView = tmpFavoriteButton;
     }
     
-
-    cell.accessoryView = tmpFavoriteButton;
     return cell;
     
 }
@@ -226,42 +217,6 @@
     [_favoriteView addSubview: tmpCancelButton];
 }
 */
-- (void) addFavorite: (TIButton *) sender
-{
-    // this function checks to see if the tree has already been added to the singleton. If the tree has, the function flags it to prevent it from being added again. The button is then returned to its original state.
-    
-    BOOL tmpFlagForArrayAdd = YES;
-    
-    //do you exist in the singleton? If so, flag to not add. 
-    for(NSString *tmpString in FAVORITEARRAY)
-    {
-        NSComparisonResult result = [tmpString compare: sender.undisplayedTitle options:(NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch) range:NSMakeRange(0, tmpString.length)];
-        if (result == NSOrderedSame)
-        {
-            tmpFlagForArrayAdd = NO;
-        }
-    }
-    
-    //if you remain flagged to add, add to singleton and change the button to reflect this addition.
-    if (tmpFlagForArrayAdd)
-    {
-        [sender setTitle: @"FAV'd" forState: UIControlStateNormal];
-        [sender setBackgroundColor: [UIColor blueColor]];
-        
-        [FAVORITEARRAY addObject: sender.undisplayedTitle];
-        DLog (@"Added to singleton, current array count: %i", FAVORITEARRAY.count);
-    }
-    
-    //if the button is being pressed for the nth time, where n is an even number, it is being unfavorited. Return the button to its unpressed state.
-    else
-    {
-        [sender setTitle: @"FAV" forState: UIControlStateNormal];
-        [sender setBackgroundColor: [UIColor redColor]];
-        [FAVORITEARRAY removeObject: sender.undisplayedTitle];
-        DLog (@"Removed from singleton, current array count: %i", FAVORITEARRAY.count);
-    }
-    
-}
 
 
 
@@ -269,7 +224,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    DLog(@"Is search display active: %c", self.searchDisplayController.isActive);
+    //DLog(@"Is search display active: %c", self.searchDisplayController.isActive);
     
     //wikiHandler converts the string from the array into a URL that is then used to push a view controller containing a webview
     if (self.searchDisplayController.isActive)
@@ -326,6 +281,11 @@
     
     // Return YES to cause the search result table view to be reloaded.
     return YES;
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    [self.tableView reloadData];
 }
 
 @end

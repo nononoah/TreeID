@@ -11,6 +11,7 @@
 		1D3E16F216BC5FF5009D2918 /* TIBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3E16F116BC5FF5009D2918 /* TIBaseViewController.m */; };
 		1D629FE816C18FFC00857020 /* TIApprovedTreesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D629FE716C18FFC00857020 /* TIApprovedTreesViewController.m */; };
 		1D6671AF16B96F8000DA7103 /* TIWikiHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6671AE16B96F8000DA7103 /* TIWikiHandler.m */; };
+		1DA16ED316C1980400AE442E /* TIBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DA16ED216C1980400AE442E /* TIBaseTableViewController.m */; };
 		1DA7F5F416C15D1F00358FC9 /* TITreeJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DA7F5F316C15D1F00358FC9 /* TITreeJSON.m */; };
 		1DB2E74F16C040AE0044BE8D /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB2E73D16C040AE0044BE8D /* AFHTTPClient.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		1DB2E75016C040AE0044BE8D /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB2E73F16C040AE0044BE8D /* AFHTTPRequestOperation.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
@@ -63,6 +64,8 @@
 		1D629FE716C18FFC00857020 /* TIApprovedTreesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TIApprovedTreesViewController.m; path = ViewControllers/TIApprovedTreesViewController.m; sourceTree = "<group>"; };
 		1D6671AD16B96F8000DA7103 /* TIWikiHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TIWikiHandler.h; path = Extensions/TIWikiHandler.h; sourceTree = SOURCE_ROOT; };
 		1D6671AE16B96F8000DA7103 /* TIWikiHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TIWikiHandler.m; path = Extensions/TIWikiHandler.m; sourceTree = SOURCE_ROOT; };
+		1DA16ED116C1980400AE442E /* TIBaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TIBaseTableViewController.h; sourceTree = "<group>"; };
+		1DA16ED216C1980400AE442E /* TIBaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TIBaseTableViewController.m; sourceTree = "<group>"; };
 		1DA7F5F216C15D1F00358FC9 /* TITreeJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TITreeJSON.h; path = Models/TITreeJSON.h; sourceTree = SOURCE_ROOT; };
 		1DA7F5F316C15D1F00358FC9 /* TITreeJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TITreeJSON.m; path = Models/TITreeJSON.m; sourceTree = SOURCE_ROOT; };
 		1DB2E73C16C040AE0044BE8D /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
@@ -269,6 +272,8 @@
 				1DD60B8E16B2EE3D00903CA7 /* TITabBarController.m */,
 				1D3E16F016BC5FF5009D2918 /* TIBaseViewController.h */,
 				1D3E16F116BC5FF5009D2918 /* TIBaseViewController.m */,
+				1DA16ED116C1980400AE442E /* TIBaseTableViewController.h */,
+				1DA16ED216C1980400AE442E /* TIBaseTableViewController.m */,
 			);
 			name = Root;
 			sourceTree = "<group>";
@@ -450,6 +455,7 @@
 				1DB2E75716C040AE0044BE8D /* UIImageView+AFNetworking.m in Sources */,
 				1DA7F5F416C15D1F00358FC9 /* TITreeJSON.m in Sources */,
 				1D629FE816C18FFC00857020 /* TIApprovedTreesViewController.m in Sources */,
+				1DA16ED316C1980400AE442E /* TIBaseTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

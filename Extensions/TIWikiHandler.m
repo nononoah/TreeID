@@ -18,7 +18,7 @@
     NSMutableString *tmpURLString = [NSMutableString stringWithString: @"http://en.m.wikipedia.org/wiki/"];
     
     
-    NSMutableString *tmpString = [NSMutableString stringWithString:[inString lowercaseString]];
+    NSMutableString *tmpString = [NSMutableString stringWithString: inString];
     NSArray *tmpArray = [tmpString componentsSeparatedByCharactersInSet :[NSCharacterSet whitespaceCharacterSet]];
     NSString *nospacestring = [tmpArray componentsJoinedByString:@"_"];
     

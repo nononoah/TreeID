@@ -53,7 +53,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    DLog(@"Rows: %i", FAVORITEARRAY.count);
+    //DLog(@"Rows: %i", FAVORITEARRAY.count);
     if (FAVORITEARRAY.count == 0)
     {
         emptyFlag = YES;
@@ -79,7 +79,7 @@
     if (emptyFlag == YES)
     {
         cell.textLabel.text = @"Add some favorites!";
-        DLog(@"table is empty");
+        //DLog(@"table is empty");
         //clear button from accessory if you don't want this being shared. Fixes a bug wherein a share button from a deleted tree would appear next to "Add some favorites"
         UIView *tmpView = [[UIView alloc] init];
         cell.accessoryView = tmpView;

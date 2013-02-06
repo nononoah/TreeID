@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 Noah Blake. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "TIBaseTableViewController.h"
 
-@interface TIApprovedTreesViewController : UITableViewController
+@interface TIApprovedTreesViewController : TIBaseTableViewController
 
 @property (nonatomic, retain) NSArray *arrayOfTrees;
 @end
