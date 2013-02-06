@@ -8,12 +8,15 @@
 
 #import "TIApprovedTreesViewController.h"
 #import "TITreeJSON.h"
+#import "TIApprovedTree.h"
 #import "TIWikiHandler.h"
 #import "TIButton.h"
 #import "TISingletonObjectWithArray.h"
+#import "TIApprovedTreeView.h"
 
 @interface TIApprovedTreesViewController ()
 {
+    NSMutableArray *arrayOfApprovedTrees;
 }
 @end
 
@@ -28,9 +31,18 @@
       
         [TITreeJSON arrayOfTreesFromJSONwithSuccessBlock: ^(NSArray *inArray) {
             self.arrayOfTrees = inArray;
-            DLog(@"Called for JSON, returned array of count: %i", inArray.count);
-            DLog(@"Called for JSON, tied array to property of count: %i", self.arrayOfTrees.count);
+            //DLog(@"Called for JSON, returned array of count: %i", inArray.count);
+            //DLog(@"Called for JSON, tied array to property of count: %i", self.arrayOfTrees.count);
         }];
+        
+        arrayOfApprovedTrees = [[NSMutableArray alloc] init];
+        TIApprovedTree *approvedTreeFactory = [[TIApprovedTree alloc] init];
+        [approvedTreeFactory approvedTreeFactorywithSuccessBlock: ^(NSMutableArray *inArray)
+         {
+             arrayOfApprovedTrees = inArray;
+             DLog(@"Approved tree factory count %i", arrayOfApprovedTrees.count);
+         }];
+        
         
     }
     return self;
@@ -140,7 +152,14 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [TIWikiHandler stringToURL: [self.arrayOfTrees objectAtIndex: indexPath.row] andPushFor: self];
+    //[TIWikiHandler stringToURL: [self.arrayOfTrees objectAtIndex: indexPath.row] andPushFor: self];
+    TIApprovedTreeView *tmpView = [[TIApprovedTreeView alloc] initWithFrame: CGRectMake(0, 0, 320, 480) andApprovedTree:[arrayOfApprovedTrees objectAtIndex: indexPath.row]];
+    tmpView.contentSize = CGSizeMake(320, 1000);
+    UIViewController *tmpController = [[UIViewController alloc] init];
+    [tmpController.view addSubview: tmpView];
+    [tmpView release];
+    [self.navigationController pushViewController: tmpController animated: YES];
+    [tmpController release];
 }
 
 @end

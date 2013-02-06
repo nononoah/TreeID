@@ -11,6 +11,6 @@
 @interface TITreeJSON : NSObject
 {
 }
-+ (NSNumber *) arrayCountFromJSON;
++ (void) arrayOfDataFromJSONwithSuccessBlock: (void (^)(NSArray *inArray)) inSuccessBlock;
 + (void) arrayOfTreesFromJSONwithSuccessBlock: (void (^)(NSArray *inArray)) inSuccessBlock;
 @end

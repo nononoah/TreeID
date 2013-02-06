@@ -12,27 +12,18 @@
 
 @implementation TITreeJSON
 
-+ (NSNumber *) arrayCountFromJSON
++ (void) arrayOfDataFromJSONwithSuccessBlock: (void (^)(NSArray *inArray)) inSuccessBlock
 {
     NSURL *url = [NSURL URLWithString:@"http://data.cityofnewyork.us/api/views/99wq-x9cr/rows.json"];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    __block NSArray *arrayOfTreesFromJSON = nil;
-    NSNumber *arrayCountFromJSON;
-    
-    
+ 
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-        arrayOfTreesFromJSON = [NSArray arrayWithArray: [JSON valueForKey:@"data"]];
-        DLog(@"Array of trees count: %i", arrayOfTreesFromJSON.count);
+        NSArray *arrayOfTrees = [NSArray arrayWithArray: [JSON valueForKey:@"data"]];
+        inSuccessBlock(arrayOfTrees);
     } failure:nil];
-    
-    [operation start];
-    DLog(@"Is the operation executing: %c", operation.isExecuting);
-    
-    arrayCountFromJSON = arrayOfTreesFromJSON.count;
-    DLog(@"Array of trees count: %@", arrayCountFromJSON);
-    return arrayCountFromJSON;
-}
 
+    [operation start];
+}
 
 + (void) arrayOfTreesFromJSONwithSuccessBlock: (void (^)(NSArray *inArray)) inSuccessBlock
 {
@@ -56,5 +47,6 @@
     
     DLog(@"Called success block");
 }
+
 
 @end
