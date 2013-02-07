@@ -154,7 +154,7 @@
 {
     //[TIWikiHandler stringToURL: [self.arrayOfTrees objectAtIndex: indexPath.row] andPushFor: self];
     TIApprovedTreeView *tmpView = [[TIApprovedTreeView alloc] initWithFrame: CGRectMake(0, 0, 320, 480) andApprovedTree:[arrayOfApprovedTrees objectAtIndex: indexPath.row]];
-    tmpView.contentSize = CGSizeMake(320, 1000);
+    tmpView.contentSize = CGSizeMake(320, 700);
     UIViewController *tmpController = [[UIViewController alloc] init];
     [tmpController.view addSubview: tmpView];
     [tmpView release];

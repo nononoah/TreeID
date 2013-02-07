@@ -34,10 +34,13 @@
             propertyCount
         } propertyTracker;
         
-        void (^makeView)(NSString *, int) = ^(NSString *inString, int i) {
+        void (^makeView)(NSString *, NSString *, int) = ^(NSString *inTitle, NSString *inField, int i) {
             UITextView *tmpView = [[UITextView alloc] init];
             tmpView.editable = NO;
-            tmpView.text = inString;
+            NSMutableString *tmpTitle = [NSMutableString stringWithString: inTitle];
+            NSString *tmpField = inField;
+            [tmpTitle appendString: tmpField];
+            tmpView.text = tmpTitle;
             [tmpView setFrame: CGRectMake(0, 50 * i, 320, 50)];
             [self addSubview: tmpView];
             [tmpView release];
@@ -48,44 +51,44 @@
             switch (i)
             {
                 case scientificName:
-                    makeView(inTree.scientificName, i);
+                    makeView(@"Scientific name: ", inTree.scientificName, i);
                     break;
                 case commonName:
-                    makeView(inTree.commonName, i);
+                    makeView(@"Common name: ", inTree.commonName, i);
                     break;
                 case form:
-                    makeView(inTree.form, i);
+                    makeView(@"Tree form: ", inTree.form, i);
                     break;
                 case growthRate:
-                    makeView(inTree.growthRate, i);
+                    makeView(@"Growth rate: ", inTree.growthRate, i);
                     break;
                 case fallColor:
-                    makeView(inTree.fallColor, i);
+                    makeView(@"Fall foliage color: ", inTree.fallColor, i);
                     break;
                 case environmentalTolerances:
-                    makeView(inTree.environmentalTolerances, i);
+                    makeView(@"Environmental tolerances: ", inTree.environmentalTolerances, i);
                     break;
                 case locationTolerances:
-                    makeView(inTree.locationTolerances, i);
+                    makeView(@"Location tolerances: ", inTree.locationTolerances, i);
                     break;
                 case notes:
-                    makeView(inTree.notes, i);
+                    makeView(@"Notes: ", inTree.notes, i);
                     break;
                 case size:
-                    makeView(inTree.size, i);
+                    makeView(@"Size: ", inTree.size, i);
                     break;
                 case beetleQuarantine:
                     if (inTree.beetleQuarantine)
                     {
                         DLog(@"Quarantine for beetles");
                         NSString *tmpString = @"Quarantine for beetles";
-                        makeView(tmpString, i);
+                        makeView(@"Quarantine note: ", tmpString, i);
                     }
                     else
                     {
                         DLog(@"Don't quarantine for beetles");
                         NSString *tmpString = @"No beetle quarantine";
-                        makeView(tmpString, i);
+                        makeView(@"Quarantine note: ", tmpString, i);
                     }
                     break;
                 default:

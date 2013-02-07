@@ -42,17 +42,15 @@
     
             
             if ([[self.undifferentiatedArrayOfTrees objectAtIndex: i] objectAtIndex: 17] != [NSNull null])
-            {
                 approvedTree.beetleQuarantine = YES;
-                DLog(@"This is what beetleQuarantine was just set to: %@", [[self.undifferentiatedArrayOfTrees objectAtIndex: i] objectAtIndex: 17]);
-            }
+         
             else
                approvedTree.beetleQuarantine = NO;
             
             [self.arrayOfApprovedTrees addObject: approvedTree];
             //DLog (@"Approved tree common name: %@", approvedTree.commonName);
         }
-        DLog (@"Approved tree count from factory: %i", self.arrayOfApprovedTrees.count);
+        //DLog (@"Approved tree count from factory: %i", self.arrayOfApprovedTrees.count);
         inSuccessBlock(self.arrayOfApprovedTrees);
     }];
 }
