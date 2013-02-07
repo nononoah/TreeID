@@ -14,7 +14,8 @@
 		1D8D980416C2B63F00E001AD /* TIApprovedTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8D980316C2B63F00E001AD /* TIApprovedTree.m */; };
 		1D8D980716C2DA1800E001AD /* TIApprovedTreeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8D980616C2DA1800E001AD /* TIApprovedTreeView.m */; };
 		1DA16ED316C1980400AE442E /* TIBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DA16ED216C1980400AE442E /* TIBaseTableViewController.m */; };
-		1DA7F5F416C15D1F00358FC9 /* TITreeJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DA7F5F316C15D1F00358FC9 /* TITreeJSON.m */; };
+		1DA548CC16C3FE21008D047F /* TITreeCensusJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DA548CB16C3FE21008D047F /* TITreeCensusJSON.m */; };
+		1DA7F5F416C15D1F00358FC9 /* TITApprovedTreeJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DA7F5F316C15D1F00358FC9 /* TITApprovedTreeJSON.m */; };
 		1DB2E74F16C040AE0044BE8D /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB2E73D16C040AE0044BE8D /* AFHTTPClient.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		1DB2E75016C040AE0044BE8D /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB2E73F16C040AE0044BE8D /* AFHTTPRequestOperation.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		1DB2E75116C040AE0044BE8D /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB2E74116C040AE0044BE8D /* AFImageRequestOperation.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
@@ -72,8 +73,10 @@
 		1D8D980616C2DA1800E001AD /* TIApprovedTreeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TIApprovedTreeView.m; path = Views/TIApprovedTreeView.m; sourceTree = "<group>"; };
 		1DA16ED116C1980400AE442E /* TIBaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TIBaseTableViewController.h; sourceTree = "<group>"; };
 		1DA16ED216C1980400AE442E /* TIBaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TIBaseTableViewController.m; sourceTree = "<group>"; };
-		1DA7F5F216C15D1F00358FC9 /* TITreeJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TITreeJSON.h; path = Models/TITreeJSON.h; sourceTree = SOURCE_ROOT; };
-		1DA7F5F316C15D1F00358FC9 /* TITreeJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TITreeJSON.m; path = Models/TITreeJSON.m; sourceTree = SOURCE_ROOT; };
+		1DA548CA16C3FE21008D047F /* TITreeCensusJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TITreeCensusJSON.h; sourceTree = "<group>"; };
+		1DA548CB16C3FE21008D047F /* TITreeCensusJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TITreeCensusJSON.m; sourceTree = "<group>"; };
+		1DA7F5F216C15D1F00358FC9 /* TITApprovedTreeJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TITApprovedTreeJSON.h; path = Models/TITApprovedTreeJSON.h; sourceTree = SOURCE_ROOT; };
+		1DA7F5F316C15D1F00358FC9 /* TITApprovedTreeJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TITApprovedTreeJSON.m; path = Models/TITApprovedTreeJSON.m; sourceTree = SOURCE_ROOT; };
 		1DB2E73C16C040AE0044BE8D /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
 		1DB2E73D16C040AE0044BE8D /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
 		1DB2E73E16C040AE0044BE8D /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -175,13 +178,15 @@
 				1DB2E74D16C040AE0044BE8D /* UIImageView+AFNetworking.h */,
 				1DB2E74E16C040AE0044BE8D /* UIImageView+AFNetworking.m */,
 			);
-			path = AFNetworking;
+			name = AFNetworking;
+			path = TreeID/AFNetworking;
 			sourceTree = "<group>";
 		};
 		1DD60B2416B2E9D400903CA7 = {
 			isa = PBXGroup;
 			children = (
 				1DD60B3916B2E9D400903CA7 /* TreeID */,
+				1DB2E73B16C040AE0044BE8D /* AFNetworking */,
 				1DD60B9F16B2F0D000903CA7 /* Models */,
 				1DD60BA616B31AC900903CA7 /* Extensions */,
 				1DD60B5716B2E9D400903CA7 /* TreeIDTests */,
@@ -304,15 +309,16 @@
 		1DD60B9F16B2F0D000903CA7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				1DB2E73B16C040AE0044BE8D /* AFNetworking */,
 				1DD60BA016B2F10A00903CA7 /* TITreeDictionary.h */,
 				1DD60BA116B2F10A00903CA7 /* TITreeDictionary.m */,
 				1DD60BA316B2F79000903CA7 /* TITreeArray.h */,
 				1DD60BA416B2F79000903CA7 /* TITreeArray.m */,
-				1DA7F5F216C15D1F00358FC9 /* TITreeJSON.h */,
-				1DA7F5F316C15D1F00358FC9 /* TITreeJSON.m */,
+				1DA7F5F216C15D1F00358FC9 /* TITApprovedTreeJSON.h */,
+				1DA7F5F316C15D1F00358FC9 /* TITApprovedTreeJSON.m */,
 				1D8D980216C2B63F00E001AD /* TIApprovedTree.h */,
 				1D8D980316C2B63F00E001AD /* TIApprovedTree.m */,
+				1DA548CA16C3FE21008D047F /* TITreeCensusJSON.h */,
+				1DA548CB16C3FE21008D047F /* TITreeCensusJSON.m */,
 			);
 			name = Models;
 			path = TreeID;
@@ -463,11 +469,12 @@
 				1DB2E75516C040AE0044BE8D /* AFURLConnectionOperation.m in Sources */,
 				1DB2E75616C040AE0044BE8D /* AFXMLRequestOperation.m in Sources */,
 				1DB2E75716C040AE0044BE8D /* UIImageView+AFNetworking.m in Sources */,
-				1DA7F5F416C15D1F00358FC9 /* TITreeJSON.m in Sources */,
+				1DA7F5F416C15D1F00358FC9 /* TITApprovedTreeJSON.m in Sources */,
 				1D629FE816C18FFC00857020 /* TIApprovedTreesViewController.m in Sources */,
 				1DA16ED316C1980400AE442E /* TIBaseTableViewController.m in Sources */,
 				1D8D980416C2B63F00E001AD /* TIApprovedTree.m in Sources */,
 				1D8D980716C2DA1800E001AD /* TIApprovedTreeView.m in Sources */,
+				1DA548CC16C3FE21008D047F /* TITreeCensusJSON.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

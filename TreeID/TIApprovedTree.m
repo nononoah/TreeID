@@ -7,7 +7,7 @@
 //
 
 #import "TIApprovedTree.h"
-#import "TITreeJSON.h"
+#import "TITApprovedTreeJSON.h"
 
 @implementation TIApprovedTree
 
@@ -23,10 +23,10 @@
 
 - (void) approvedTreeFactorywithSuccessBlock: (void (^)(NSMutableArray *inArray)) inSuccessBlock
 {
-    [TITreeJSON arrayOfDataFromJSONwithSuccessBlock: ^(NSArray *inArray)
+    [TITApprovedTreeJSON arrayOfDataFromJSONwithSuccessBlock: ^(NSArray *inArray)
     {
         self.undifferentiatedArrayOfTrees = inArray;
-        DLog(@" self.undifferentiated array count: %i", self.undifferentiatedArrayOfTrees.count);
+        //DLog(@" self.undifferentiated array count: %i", self.undifferentiatedArrayOfTrees.count);
         for (int i = 0; i < self.undifferentiatedArrayOfTrees.count; ++i)
         {
             TIApprovedTree *approvedTree = [[TIApprovedTree alloc] init];

@@ -6,11 +6,11 @@
 //  Copyright (c) 2013 Noah Blake. All rights reserved.
 //
 
-#import "TITreeJSON.h"
+#import "TITApprovedTreeJSON.h"
 #import "AFJSONRequestOperation.h"
 #import "AFHTTPClient.h"
 
-@implementation TITreeJSON
+@implementation TITApprovedTreeJSON
 
 + (void) arrayOfDataFromJSONwithSuccessBlock: (void (^)(NSArray *inArray)) inSuccessBlock
 {

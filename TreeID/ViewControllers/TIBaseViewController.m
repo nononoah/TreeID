@@ -10,7 +10,7 @@
 #import "TITreeDictionary.h"
 #import "TICladisticViewController.h"
 #import "TIWikiHandler.h"
-#import "TIApprovedTree.h"
+
 
 
 @interface TIBaseViewController ()
@@ -28,6 +28,7 @@
     if (self)
     {
         _treeDictionary = [[TITreeDictionary alloc] init];
+   
     }
     return self;
 }

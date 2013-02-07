@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TITreeJSON : NSObject
+@interface TITApprovedTreeJSON : NSObject
 {
 }
 + (void) arrayOfDataFromJSONwithSuccessBlock: (void (^)(NSArray *inArray)) inSuccessBlock;

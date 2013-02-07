@@ -7,7 +7,7 @@
 //
 
 #import "TIApprovedTreesViewController.h"
-#import "TITreeJSON.h"
+#import "TITApprovedTreeJSON.h"
 #import "TIApprovedTree.h"
 #import "TIWikiHandler.h"
 #import "TIButton.h"
@@ -29,7 +29,7 @@
         self.title = @"Search";
         self.tableView.delegate = self;
       
-        [TITreeJSON arrayOfTreesFromJSONwithSuccessBlock: ^(NSArray *inArray) {
+        [TITApprovedTreeJSON arrayOfTreesFromJSONwithSuccessBlock: ^(NSArray *inArray) {
             self.arrayOfTrees = inArray;
             //DLog(@"Called for JSON, returned array of count: %i", inArray.count);
             //DLog(@"Called for JSON, tied array to property of count: %i", self.arrayOfTrees.count);

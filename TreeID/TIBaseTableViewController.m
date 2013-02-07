@@ -74,7 +74,7 @@
 
 - (void) viewDidDisappear:(BOOL)animated
 {
-    [self.tableView reloadData];
+    //[self.tableView reloadData];
 }
 
 - (void) testForDuplicity: (TIButton *) sender
@@ -87,11 +87,6 @@
         {
             [sender setBackgroundColor: [UIColor blueColor]];
             [sender setTitle: @"FAV'd" forState: UIControlStateNormal];
-        }
-        else if ( (result != NSOrderedSame) && ([sender.titleLabel.text isEqualToString: @"FAV'd"]) )
-        {
-            [sender setBackgroundColor: [UIColor redColor]];
-            [sender setTitle: @"FAV" forState: UIControlStateNormal];
         }
     }
 }
