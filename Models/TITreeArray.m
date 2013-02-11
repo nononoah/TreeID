@@ -42,8 +42,6 @@
             if (foundDuplicate == NO)
                 [tmpMutableArray addObject: tmpString];
             
-            if (foundDuplicate == YES)
-                foundDuplicate = NO;
            
             //DLog(@"Object added of class: %@", [[[tmpTreeDictionary objectForKey: key] objectAtIndex:0] class]);
         }

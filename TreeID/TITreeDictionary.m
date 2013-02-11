@@ -20,7 +20,7 @@
 
 - (id) init
 {
-     _treeDictionary = [[NSDictionary dictionaryWithObjectsAndKeys:
+     self.treeDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
      [NSArray arrayWithObjects:@"CONIFEROUS, NEEDLES",@"BERRY-LIKE CONES, LEAVES", @"DECIDUOUS",nil], @"START",
      
      //coniferous needles leg
@@ -124,7 +124,7 @@
      
      [NSArray arrayWithObjects:@"MOST LEAVES LOBED", @"LEAVES NOT LOBED", nil], @"LEAVES NOT LOBED",
      nil
-     ] retain];
+     ];
     
     return self;
 }

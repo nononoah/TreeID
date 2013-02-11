@@ -10,6 +10,6 @@
 
 @interface TITreeCensusJSON : NSObject
 
-+ (void) arrayOfPlantedTreesFromJSONwithSuccessBlock: (void (^)(NSArray *inArray)) inSuccessBlock;
-+ (void)fetchJSON:(void (^)(NSArray *inArray))inSuccess;
+//+ (void) arrayOfPlantedTreesFromJSONwithSuccessBlock: (void (^)(NSArray *inArray)) inSuccessBlock;
+//+ (void)fetchJSON:(void (^)(NSArray *inArray))inSuccess;
 @end
