@@ -25,6 +25,7 @@
 {
     [TITApprovedTreeJSON arrayOfDataFromJSONwithSuccessBlock: ^(NSArray *inArray)
     {
+        //by all rites, this should have been a second object here. I've slurred together a collection of objects and the object iself in a single object here, and I understand that's poor object management. 
         self.undifferentiatedArrayOfTrees = inArray;
         //DLog(@" self.undifferentiated array count: %i", self.undifferentiatedArrayOfTrees.count);
         for (int i = 0; i < self.undifferentiatedArrayOfTrees.count; ++i)

@@ -16,7 +16,7 @@
 
 @interface TIApprovedTreesViewController ()
 {
-    NSMutableArray *arrayOfApprovedTrees;
+    NSMutableArray *_arrayOfApprovedTreeObjects;
 }
 @end
 
@@ -32,15 +32,15 @@
         [TITApprovedTreeJSON arrayOfTreesFromJSONwithSuccessBlock: ^(NSArray *inArray) {
             self.arrayOfTrees = inArray;
             //DLog(@"Called for JSON, returned array of count: %i", inArray.count);
-            //DLog(@"Called for JSON, tied array to property of count: %i", self.arrayOfTrees.count);
+            DLog(@"Called for JSON, tied array to property of count: %i", self.arrayOfTrees.count);
         }];
         
-        arrayOfApprovedTrees = [[NSMutableArray alloc] init];
+       _arrayOfApprovedTreeObjects = [[NSMutableArray alloc] init];
         TIApprovedTree *approvedTreeFactory = [[TIApprovedTree alloc] init];
         [approvedTreeFactory approvedTreeFactorywithSuccessBlock: ^(NSMutableArray *inArray)
          {
-             arrayOfApprovedTrees = inArray;
-             DLog(@"Approved tree factory count %i", arrayOfApprovedTrees.count);
+             _arrayOfApprovedTreeObjects = inArray;
+             //DLog(@"Approved tree factory count %i", arrayOfApprovedTreeObjects.count);
          }];
         
         
@@ -153,7 +153,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //[TIWikiHandler stringToURL: [self.arrayOfTrees objectAtIndex: indexPath.row] andPushFor: self];
-    TIApprovedTreeView *tmpView = [[TIApprovedTreeView alloc] initWithFrame: CGRectMake(0, 0, 320, 480) andApprovedTree:[arrayOfApprovedTrees objectAtIndex: indexPath.row]];
+    TIApprovedTreeView *tmpView = [[TIApprovedTreeView alloc] initWithFrame: CGRectMake(0, 0, 320, 480) andApprovedTree:[_arrayOfApprovedTreeObjects objectAtIndex: indexPath.row]];
     tmpView.contentSize = CGSizeMake(320, 700);
     UIViewController *tmpController = [[UIViewController alloc] init];
     [tmpController.view addSubview: tmpView];
