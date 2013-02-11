@@ -26,3 +26,4 @@
 #endif
 
 #define FAVORITEARRAY [[TISingletonObjectWithArray sharedInstance] favoriteArray]
+#define TREEDICTIONARY [[TITreeDictionary sharedInstance] treeDictionary]

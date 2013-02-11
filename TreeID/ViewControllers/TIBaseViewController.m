@@ -15,7 +15,6 @@
 
 @interface TIBaseViewController ()
 {
-    TITreeDictionary *_treeDictionary;
     NSArray *arrayOfTrees;
 }
 @end
@@ -27,8 +26,6 @@
     self = [super init];
     if (self)
     {
-        _treeDictionary = [[TITreeDictionary alloc] init];
-   
     }
     return self;
 }
@@ -53,7 +50,7 @@
 - (void) pushFromStart
 {
     //this is relatively abusive, and not how one should use a parent, but the parent here serves primarily to present the opening view (and the methods that help format the views that follow). This method marks the practical end of the parent's view life cycle. 
-    NSArray *tmpArray = [_treeDictionary objectForKey: @"START"];
+    NSArray *tmpArray = [TREEDICTIONARY objectForKey: @"START"];
     TICladisticViewController *tmpController = [[TICladisticViewController alloc] initWithButtonArray: tmpArray];
     [self.navigationController pushViewController: tmpController animated:YES];
     [tmpController release];
@@ -63,7 +60,7 @@
 {
     //divide the screen into a number of sections equal to the number of buttons
     int sectionHeight = ([[UIScreen mainScreen] applicationFrame].size.height - (44 + 98)) / (inArray.count); //44 -> navbar, 98 -> tabbar
-    DLog(@"sectionHeght: %i", sectionHeight);
+    //DLog(@"sectionHeght: %i", sectionHeight);
     
     //the x-coordinate of the middle of the screen, used to center buttons horizontally
     int midScreenX = ([[UIScreen mainScreen] applicationFrame].size.width) / 2;
@@ -136,9 +133,9 @@
 {
     //takes string from button, finds the array that corresponds to it in the dictionary database, that array then dictates how many buttons are in the following view controller and what content these buttons contain. Refer to setUpButtons to see how this is done. 
     NSString *tmpString = [sender currentTitle];
-    NSArray *tmpArray = [_treeDictionary objectForKey: tmpString];
+    NSArray *tmpArray = [TREEDICTIONARY objectForKey: tmpString];
     TICladisticViewController *tmpController = [[TICladisticViewController alloc] initWithButtonArray: tmpArray];
-    [self.navigationController pushViewController:tmpController animated:YES];
+    [self.navigationController pushViewController: tmpController animated: YES];
     [tmpController release];
 }
 
@@ -156,7 +153,6 @@
 
 - (void) dealloc
 {
-    [_treeDictionary release];
     [super dealloc];
 }
 

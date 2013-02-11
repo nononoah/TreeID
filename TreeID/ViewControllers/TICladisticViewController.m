@@ -44,8 +44,6 @@
 
 - (void) dealloc
 {
-    //not sure I need to be deallocing here, but figured it was better safe than sorry
-    [_buttonArray release];
     [super dealloc];
 }
 

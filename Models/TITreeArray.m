@@ -13,19 +13,20 @@
 
 + (NSArray *) treeArray
 {
-    TITreeDictionary *tmpTreeDictionary = [[TITreeDictionary alloc] init];
+
     NSMutableArray *tmpMutableArray = [[[NSMutableArray alloc] init] autorelease];
     
-    //this loop separates all of the individual trees from the cladistic dictionary of trees and their descriptors. Key steps through the dictionaries keys, and if key corresponds to the value of an array that only has one element, it is the key to a single tree. Before this single tree is stored in a new array, it is checked to see if it already exists there. 
+    //this loop separates all of the individual trees from the cladistic dictionary of trees and their descriptors. Key steps through the dictionaries keys, and if key corresponds to the value of an array that only has one element, it is the key to a single tree. Before this single tree is stored in a new array, run a check to see if it already exists there. 
     
-    for (id key in tmpTreeDictionary)
+    for (id key in TREEDICTIONARY)
     {
         //DLog(@"Key is equal to %@", key);
-        NSArray *tmpArray = [tmpTreeDictionary objectForKey: key];
+        NSArray *tmpArray = [TREEDICTIONARY objectForKey: key];
         BOOL foundDuplicate = NO;
+        
         if (tmpArray.count == 1)
         {
-            NSString *tmpString = [[[tmpTreeDictionary objectForKey: key] objectAtIndex:0] capitalizedString];
+            NSString *tmpString = [[[TREEDICTIONARY objectForKey: key] objectAtIndex:0] capitalizedString];
            // DLog(@"Temp string: %@", tmpString);
             for (NSString *tmpStepString in tmpMutableArray)
             {
@@ -48,7 +49,6 @@
         }
     }
                     
-    [tmpTreeDictionary release];
     return [NSArray arrayWithArray: tmpMutableArray];
 }
 

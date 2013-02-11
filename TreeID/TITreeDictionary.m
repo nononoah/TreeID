@@ -11,9 +11,16 @@
 
 @implementation TITreeDictionary
 
++ (id) sharedInstance {
+	static dispatch_once_t predicate;
+	static TITreeDictionary *instance = nil;
+	dispatch_once(&predicate, ^{instance = [[self alloc] init];});
+	return instance;
+}
+
 - (id) init
 {
-    self = [[NSDictionary dictionaryWithObjectsAndKeys:
+     _treeDictionary = [[NSDictionary dictionaryWithObjectsAndKeys:
      [NSArray arrayWithObjects:@"CONIFEROUS, NEEDLES",@"BERRY-LIKE CONES, LEAVES", @"DECIDUOUS",nil], @"START",
      
      //coniferous needles leg

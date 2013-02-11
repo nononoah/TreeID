@@ -8,7 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface TITreeDictionary : NSDictionary
-{
-}
+@interface TITreeDictionary : NSObject
+
+@property (nonatomic, retain) NSDictionary *treeDictionary;
++ (id)sharedInstance;
+
 @end
